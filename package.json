@@ -1,0 +1,14 @@
+{
+  "name": "night-sky",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web app that reconstructs the stars, planets and Moon for a given date and place.",
+  "type": "module",
+  "scripts": {
+    "start": "npx --yes http-server . -p 4173 -c-1",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
+  }
+}
