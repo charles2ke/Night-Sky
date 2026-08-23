@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Night Sky — see the stars and Moon for any date and place</title>
+    <meta
+      name="description"
+      content="Reconstruct the night sky: enter a date and a place to see the stars, constellations, planets and the Moon as they appeared from there."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050b1b'/%3E%3Ccircle cx='21' cy='11' r='6' fill='%23f4efe2'/%3E%3Ccircle cx='18' cy='9' r='6' fill='%23050b1b'/%3E%3Ccircle cx='8' cy='22' r='1.4' fill='%23fff'/%3E%3Ccircle cx='14' cy='26' r='1' fill='%23fff'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <header class="masthead">
+      <h1>Night Sky</h1>
+      <p>Enter a date and a place to reconstruct the stars, planets and the Moon as seen from there.</p>
+    </header>
+
+    <main>
+      <form id="sky-form" class="controls" autocomplete="off">
+        <div class="field">
+          <label for="place">Place</label>
+          <input id="place" name="place" type="text" value="Gurugram, India" placeholder="City, or latitude, longitude" required />
+        </div>
+        <div class="field">
+          <label for="date">Date</label>
+          <input id="date" name="date" type="date" value="1995-02-01" required />
+        </div>
+        <div class="field">
+          <label for="time">Local time</label>
+          <input id="time" name="time" type="time" value="00:00" required />
+        </div>
+        <div class="field">
+          <label for="direction">Facing</label>
+          <select id="direction" name="direction">
+            <option value="N">North</option>
+            <option value="NE">North-East</option>
+            <option value="E">East</option>
+            <option value="SE">South-East</option>
+            <option value="S" selected>South</option>
+            <option value="SW">South-West</option>
+            <option value="W">West</option>
+            <option value="NW">North-West</option>
+          </select>
+        </div>
+        <button id="generate" type="submit">Show the night sky</button>
+      </form>
+
+      <div class="toggles">
+        <label><input id="toggle-constellations" type="checkbox" checked /> Constellation lines</label>
+        <label><input id="toggle-labels" type="checkbox" checked /> Object names</label>
+        <label class="slider">
+          Light pollution
+          <input id="light-pollution" type="range" min="0" max="100" value="35" />
+        </label>
+        <a id="download" class="download" download="night-sky.png" hidden>Download image</a>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite">Ready.</p>
+
+      <figure class="sky">
+        <canvas id="sky-canvas" width="1920" height="1080" aria-label="Reconstructed night sky panorama"></canvas>
+        <figcaption id="caption">
+          A visual reconstruction: star, planet and Moon positions are computed for the requested
+          moment; the horizon is illustrative. The Moon is drawn at three times its apparent size so
+          its phase is visible.
+        </figcaption>
+      </figure>
+
+      <section id="details" class="details" hidden>
+        <h2>Sky details</h2>
+        <dl id="details-list"></dl>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Star data from the Yale Bright Star / HYG catalogues via
+        <a href="https://github.com/ofrohn/d3-celestial">d3-celestial</a>; place lookup by
+        <a href="https://open-meteo.com/">Open-Meteo</a>. Positions follow the algorithms in Meeus,
+        <em>Astronomical Algorithms</em>.
+      </p>
+    </footer>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
