@@ -1,2 +1,3 @@
 # Night-Sky
-See the night sky and stars for a historical date
+
+Generate a realistic, consistent visual reconstruction of the night sky for a user-specified date and location, matching the established panoramic night-sky style.
