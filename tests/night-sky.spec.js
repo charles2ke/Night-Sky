@@ -84,10 +84,9 @@ test('the sky changes when the viewing direction changes', async ({ page }) => {
   const south = await page.locator('#sky-canvas').screenshot();
 
   await page.selectOption('#direction', 'N');
-  await page.waitForTimeout(500);
-  const north = await page.locator('#sky-canvas').screenshot();
-
-  expect(Buffer.compare(south, north)).not.toBe(0);
+  await expect
+    .poll(async () => Buffer.compare(south, await page.locator('#sky-canvas').screenshot()))
+    .not.toBe(0);
   await page.screenshot({ path: `${SCREENSHOT_DIR}/facing-north.png`, fullPage: true });
 });
 
@@ -111,7 +110,5 @@ test('constellation lines can be toggled off', async ({ page }) => {
   await generate(page, { place: 'Gurugram, India', date: '1995-02-01', time: '00:00', direction: 'S' });
   const withLines = await litPixelFraction(page);
   await page.uncheck('#toggle-constellations');
-  await page.waitForTimeout(400);
-  const withoutLines = await litPixelFraction(page);
-  expect(withoutLines).toBeLessThan(withLines);
+  await expect.poll(() => litPixelFraction(page)).toBeLessThan(withLines);
 });

@@ -126,9 +126,9 @@ export function renderSky(canvas, sky, options) {
 
   drawSkyGradient(ctx, width, height, proj.horizonY, lightPollution);
   drawMilkyWay(ctx, proj, sky.milkyWay, lightPollution);
-  if (showConstellations) drawConstellations(ctx, proj, sky.constellationLines, width, height);
-  drawStars(ctx, proj, sky.stars, width, height, lightPollution, showLabels);
-  drawPlanets(ctx, proj, sky.planets, width, height, showLabels);
+  if (showConstellations) drawConstellations(ctx, proj, sky.constellationLines, width);
+  drawStars(ctx, proj, sky.stars, height, lightPollution, showLabels);
+  drawPlanets(ctx, proj, sky.planets, height, showLabels);
   drawMoon(ctx, proj, sky.moon, proj.scale);
   drawHorizon(ctx, width, height, proj.horizonY, lightPollution, terrainSeed);
   drawOverlay(ctx, width, height, { dateLabel, timeLabel, place, coordsLabel, viewDirection, moon: sky.moon });
@@ -171,7 +171,7 @@ function drawMilkyWay(ctx, proj, points, lightPollution) {
   ctx.restore();
 }
 
-function drawConstellations(ctx, proj, lines, width, height) {
+function drawConstellations(ctx, proj, lines, width) {
   ctx.save();
   ctx.strokeStyle = 'rgba(120, 160, 220, 0.16)';
   ctx.lineWidth = Math.max(1, width / 1600);
@@ -204,7 +204,7 @@ function starRadius(mag, scale) {
   return size * (scale / 13);
 }
 
-function drawStars(ctx, proj, stars, width, height, lightPollution, showLabels) {
+function drawStars(ctx, proj, stars, height, lightPollution, showLabels) {
   const limit = 6.5 - lightPollution * 2.2;
   ctx.save();
   for (const s of stars) {
@@ -243,7 +243,7 @@ function drawStars(ctx, proj, stars, width, height, lightPollution, showLabels) 
   ctx.restore();
 }
 
-function drawPlanets(ctx, proj, planets, width, height, showLabels) {
+function drawPlanets(ctx, proj, planets, height, showLabels) {
   ctx.save();
   for (const p of planets) {
     if (p.alt < 0) continue;
