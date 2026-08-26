@@ -1,6 +1,7 @@
 // Wires the form to the astronomy engine and the canvas renderer.
 import { formatOffset, localToUtc } from './astro.js';
 import { resolvePlace } from './geocode.js';
+import { loadEvents, renderOnThisDay } from './onthisday.js';
 import { computeSky, coordinatesLabel, renderSky } from './render.js';
 
 const els = {
@@ -18,6 +19,9 @@ const els = {
   details: document.getElementById('details'),
   detailsList: document.getElementById('details-list'),
   download: document.getElementById('download'),
+  onThisDay: document.getElementById('on-this-day'),
+  onThisDayHeading: document.getElementById('on-this-day-heading'),
+  eventsList: document.getElementById('events-list'),
 };
 
 let catalog = null;
@@ -138,6 +142,13 @@ async function generate(event) {
       ['Planets above the horizon', planetsUp.length ? planetsUp.join(', ') : 'none'],
       ['Place lookup', place.source],
     ]);
+    const events = await loadEvents();
+    renderOnThisDay(
+      { section: els.onThisDay, heading: els.onThisDayHeading, list: els.eventsList },
+      events,
+      dateStr
+    );
+
     setStatus(`Night sky over ${place.label || place.name} on ${formatDate(dateStr)}.`);
   } catch (error) {
     setStatus(error.message || String(error), 'error');

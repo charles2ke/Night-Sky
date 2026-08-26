@@ -482,3 +482,67 @@ a {
 .eclipse-countdown {
   color: var(--accent);
 }
+
+.on-this-day {
+  margin-top: 2rem;
+}
+
+.on-this-day h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.on-this-day-intro {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.event-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: 1rem;
+}
+
+.event {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+}
+
+.event-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.event-year {
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+
+.event-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.event-note {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.event.empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
