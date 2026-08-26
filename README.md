@@ -85,9 +85,14 @@ Tools:
 | `moon_phase` | Phase name, illuminated fraction, age, distance and alt/az of the Moon |
 | `sky_snapshot` | Moon, naked-eye planets and brightest named stars above the horizon, optionally limited to the 140° panorama for one compass direction |
 | `visible_constellations` | Constellations above the horizon, with the altitude and azimuth of their centre |
+| `eclipses` | Upcoming and past solar and lunar eclipses around a reference date, with dates, magnitudes and visibility regions |
+| `on_this_day` | World events that share a month and day with a date and happened on or before it |
+| `galaxies` | The galaxy guide: the full list, or the facts, summary and image credits for one galaxy |
 
-Every tool takes a place (`place`, or `latitude` and `longitude`, plus an optional IANA
-`timezone`) and a local `date` and `time`, and answers with JSON.
+The sky tools (`moon_phase`, `sky_snapshot`, `visible_constellations`) take a place (`place`, or
+`latitude` and `longitude`, plus an optional IANA `timezone`) and a local `date` and `time`;
+`eclipses`, `on_this_day` and `galaxies` read the bundled catalogues in `data/`. Every tool answers
+with JSON.
 
 Register it with an MCP client, for example in `.vscode/mcp.json` or a Claude Desktop config:
 

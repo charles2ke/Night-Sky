@@ -1,5 +1,7 @@
 // Loads the eclipse catalogue and splits it into upcoming and past events.
-const els = {
+// The helpers below are also used by the MCP server, which runs in Node, so the
+// page elements are only looked up when a document exists.
+const els = typeof document === 'undefined' ? { filters: [] } : {
   status: document.getElementById('status'),
   nextUp: document.getElementById('next-up'),
   upcoming: document.getElementById('upcoming-list'),

@@ -20,13 +20,26 @@ import {
   moonPhase,
   precessFromJ2000,
 } from '../src/astro.js';
+import { daysUntil, eclipseEmoji, formatEclipseDate, splitEclipses } from '../src/eclipses.js';
+import { galaxyIndex, imageUrl, matchGalaxy, sourceUrl } from '../src/galaxies.js';
 import { resolvePlace } from '../src/geocode.js';
+import { eventsOnDay, monthDayLabel } from '../src/onthisday.js';
 import { DIRECTIONS, computeSky, coordinatesLabel } from '../src/render.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PANORAMA_HALF_FOV = 70; // computeSky's panorama spans 140 degrees
 
 let catalogPromise = null;
+const dataPromises = new Map();
+
+/** Read and cache one of the JSON files in `data/`. */
+function loadData(name) {
+  if (!dataPromises.has(name)) {
+    dataPromises.set(name, readFile(join(ROOT, 'data', `${name}.json`), 'utf8').then(JSON.parse));
+  }
+  return dataPromises.get(name);
+}
+
 /** Load and cache the star catalogue and constellation lines from `data/`. */
 function loadCatalog() {
   if (!catalogPromise) {
@@ -273,6 +286,145 @@ server.registerTool(
     visible.sort((a, b) => b.altitude - a.altitude);
 
     return jsonResult({ place: describeLocation(location), when, constellations: visible });
+  }
+);
+
+server.registerTool(
+  'eclipses',
+  {
+    title: 'Solar and lunar eclipses',
+    description:
+      'Upcoming and past eclipses from the same NASA-derived catalogue as the eclipses page, split around a reference date.',
+    inputSchema: {
+      kind: z.enum(['all', 'solar', 'lunar']).default('all').describe('Restrict the catalogue to one kind of eclipse'),
+      date: z
+        .string()
+        .regex(/^\d{4}-\d{2}-\d{2}$/)
+        .optional()
+        .describe('Reference date as YYYY-MM-DD (defaults to today, UTC)'),
+      upcoming: z.number().int().min(0).max(50).default(5).describe('How many future eclipses to return'),
+      past: z.number().int().min(0).max(50).default(3).describe('How many past eclipses to return'),
+    },
+  },
+  async (args) => {
+    const { eclipses, source, note } = await loadData('eclipses');
+    const reference = args.date ? new Date(`${args.date}T00:00:00Z`) : new Date();
+    if (Number.isNaN(reference.getTime())) throw new Error(`Invalid date: "${args.date}".`);
+
+    const matching = eclipses.filter((e) => args.kind === 'all' || e.kind === args.kind);
+    const { upcoming, past } = splitEclipses(matching, reference);
+    const describeEclipse = (eclipse) => ({
+      date: eclipse.date,
+      dateLabel: formatEclipseDate(eclipse.date),
+      greatestEclipseUtc: eclipse.time || null,
+      kind: eclipse.kind,
+      type: eclipse.type,
+      emoji: eclipseEmoji(eclipse),
+      magnitude: eclipse.magnitude ?? null,
+      duration: eclipse.duration || null,
+      regions: eclipse.regions,
+      notes: eclipse.notes || null,
+      daysFromReference: daysUntil(eclipse, reference),
+    });
+
+    return jsonResult({
+      catalogue: { source, note, entries: eclipses.length },
+      reference: { date: reference.toISOString().slice(0, 10), kind: args.kind },
+      upcoming: upcoming.slice(0, args.upcoming).map(describeEclipse),
+      past: past.slice(0, args.past).map(describeEclipse),
+      totals: { upcoming: upcoming.length, past: past.length },
+    });
+  }
+);
+
+server.registerTool(
+  'on_this_day',
+  {
+    title: 'On this day',
+    description:
+      'World events that share a month and day with the given date and happened on or before it, exactly as the "On this day" section of the site shows them.',
+    inputSchema: {
+      date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).describe('Date as YYYY-MM-DD'),
+      limit: z.number().int().min(1).max(50).default(6).describe('How many events to return, most recent first'),
+    },
+  },
+  async (args) => {
+    const { events, source, note } = await loadData('events');
+    return jsonResult({
+      catalogue: { source, note, entries: events.length },
+      date: args.date,
+      dayLabel: monthDayLabel(args.date),
+      events: eventsOnDay(events, args.date, args.limit).map((event) => ({
+        date: event.date,
+        year: Number(event.date.slice(0, 4)),
+        category: event.category || null,
+        title: event.title,
+        description: event.description || null,
+      })),
+    });
+  }
+);
+
+server.registerTool(
+  'galaxies',
+  {
+    title: 'Galaxy guide',
+    description:
+      'The galaxies covered by the site: the whole list, or the facts, summary and image credits for the one whose name matches a query.',
+    inputSchema: {
+      query: z.string().optional().describe('Galaxy name or part of one, e.g. "Andromeda"; omit to list every galaxy'),
+    },
+  },
+  async (args) => {
+    const data = await loadData('galaxies');
+    const index = galaxyIndex(data);
+    const describeImage = (image) =>
+      image && {
+        url: imageUrl(image.file, image.width || 900),
+        source: sourceUrl(image.file),
+        alt: image.alt,
+        caption: image.caption || null,
+        credit: image.credit,
+        license: image.license,
+        licenseUrl: image.licenseUrl,
+      };
+    const describeGalaxy = (galaxy) => ({
+      id: galaxy.id,
+      name: galaxy.name,
+      designation: galaxy.designation,
+      type: galaxy.type,
+      constellation: galaxy.constellation,
+      distance: galaxy.distance,
+      diameter: galaxy.diameter,
+      magnitude: galaxy.magnitude || null,
+      group: galaxy.group || null,
+      stars: galaxy.stars || null,
+      discovery: galaxy.discovery || null,
+      summary: galaxy.summary,
+      highlights: galaxy.highlights || [],
+      images: (galaxy.gallery || [galaxy.image]).filter(Boolean).map(describeImage),
+    });
+
+    const all = [{ ...data.home, id: 'milky-way' }, ...data.galaxies];
+    if (!args.query) {
+      return jsonResult({
+        count: all.length,
+        galaxies: all.map((galaxy) => ({
+          id: galaxy.id,
+          name: galaxy.name,
+          designation: galaxy.designation,
+          type: galaxy.type,
+          constellation: galaxy.constellation,
+          distance: galaxy.distance,
+        })),
+      });
+    }
+
+    const id = matchGalaxy(args.query, index);
+    if (!id) {
+      throw new Error(`No galaxy matches "${args.query}". Known galaxies: ${index.map((e) => e.name).join(', ')}.`);
+    }
+    return jsonResult({ query: args.query, galaxy: describeGalaxy(all.find((galaxy) => galaxy.id === id)) });
   }
 );
 
