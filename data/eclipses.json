@@ -1,0 +1,426 @@
+{
+  "source": "NASA/GSFC Five Millennium Catalog of Solar and Lunar Eclipses (Espenak & Meeus)",
+  "note": "Times are the instant of greatest eclipse in UTC.",
+  "eclipses": [
+    {
+      "date": "2017-02-26",
+      "time": "14:53",
+      "kind": "solar",
+      "type": "Annular",
+      "magnitude": 0.992,
+      "duration": "44 s of annularity",
+      "regions": "Southern Chile, Argentina, Angola, Zambia",
+      "notes": "A narrow ring of fire crossed the South Atlantic between South America and Africa."
+    },
+    {
+      "date": "2017-08-21",
+      "time": "18:26",
+      "kind": "solar",
+      "type": "Total",
+      "magnitude": 1.031,
+      "duration": "2 min 40 s of totality",
+      "regions": "Continental United States, coast to coast",
+      "notes": "The \"Great American Eclipse\": the first totality to span the contiguous US since 1918."
+    },
+    {
+      "date": "2018-01-31",
+      "time": "13:30",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.315,
+      "duration": "76 min of totality",
+      "regions": "Asia, Australia, the Pacific and western North America",
+      "notes": "Widely billed as a \"super blue blood Moon\" — a second full Moon of the month near perigee."
+    },
+    {
+      "date": "2018-07-27",
+      "time": "20:22",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.609,
+      "duration": "103 min of totality",
+      "regions": "South America, Europe, Africa, Asia and Australia",
+      "notes": "The longest total lunar eclipse of the 21st century; Mars was at opposition the same week."
+    },
+    {
+      "date": "2019-01-21",
+      "time": "05:12",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.195,
+      "duration": "62 min of totality",
+      "regions": "The Americas, Europe and western Africa",
+      "notes": "A high, well-placed totality for observers on both sides of the Atlantic."
+    },
+    {
+      "date": "2019-07-02",
+      "time": "19:24",
+      "kind": "solar",
+      "type": "Total",
+      "magnitude": 1.046,
+      "duration": "4 min 33 s of totality",
+      "regions": "South Pacific, Chile and Argentina",
+      "notes": "Totality passed over the observatories of the Chilean Atacama near sunset."
+    },
+    {
+      "date": "2019-12-26",
+      "time": "05:18",
+      "kind": "solar",
+      "type": "Annular",
+      "magnitude": 0.97,
+      "duration": "3 min 39 s of annularity",
+      "regions": "Saudi Arabia, southern India, Sumatra and Borneo",
+      "notes": "A bright ring of fire seen at sunrise from the Arabian peninsula."
+    },
+    {
+      "date": "2020-06-21",
+      "time": "06:40",
+      "kind": "solar",
+      "type": "Annular",
+      "magnitude": 0.994,
+      "duration": "38 s of annularity",
+      "regions": "Central Africa, northern India, China and Taiwan",
+      "notes": "An extremely thin annulus on the day of the June solstice."
+    },
+    {
+      "date": "2020-12-14",
+      "time": "16:14",
+      "kind": "solar",
+      "type": "Total",
+      "magnitude": 1.025,
+      "duration": "2 min 10 s of totality",
+      "regions": "Chile and Argentina (Patagonia), southern Pacific and Atlantic",
+      "notes": "Totality crossed the Araucanía region of Chile and Río Negro in Argentina."
+    },
+    {
+      "date": "2021-05-26",
+      "time": "11:19",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.009,
+      "duration": "15 min of totality",
+      "regions": "The Pacific, Australia, eastern Asia and western Americas",
+      "notes": "A very short totality with the Moon close to perigee."
+    },
+    {
+      "date": "2021-06-10",
+      "time": "10:43",
+      "kind": "solar",
+      "type": "Annular",
+      "magnitude": 0.943,
+      "duration": "3 min 51 s of annularity",
+      "regions": "Northern Canada, Greenland and Arctic Russia",
+      "notes": "A high-Arctic ring of fire; a partial eclipse rose over eastern North America."
+    },
+    {
+      "date": "2021-11-19",
+      "time": "09:03",
+      "kind": "lunar",
+      "type": "Partial",
+      "magnitude": 0.974,
+      "duration": "3 h 28 m of partial phase",
+      "regions": "The Americas, the Pacific, eastern Asia and Australia",
+      "notes": "A near-total partial eclipse, and the longest partial lunar eclipse in centuries."
+    },
+    {
+      "date": "2021-12-04",
+      "time": "07:34",
+      "kind": "solar",
+      "type": "Total",
+      "magnitude": 1.037,
+      "duration": "1 min 54 s of totality",
+      "regions": "Antarctica and the Southern Ocean",
+      "notes": "Only expedition camps and flights over Antarctica saw totality."
+    },
+    {
+      "date": "2022-05-16",
+      "time": "04:11",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.414,
+      "duration": "85 min of totality",
+      "regions": "The Americas, Europe and Africa",
+      "notes": "A deep, dark totality well placed for the Atlantic-facing continents."
+    },
+    {
+      "date": "2022-11-08",
+      "time": "10:59",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.359,
+      "duration": "85 min of totality",
+      "regions": "Asia, Australia, the Pacific and the Americas",
+      "notes": "The last total lunar eclipse before a three-year gap."
+    },
+    {
+      "date": "2022-10-25",
+      "time": "11:01",
+      "kind": "solar",
+      "type": "Partial",
+      "magnitude": 0.862,
+      "duration": "up to 86% of the Sun covered",
+      "regions": "Europe, north-east Africa, the Middle East and western Asia",
+      "notes": "A large partial eclipse best seen from western Siberia."
+    },
+    {
+      "date": "2023-04-20",
+      "time": "04:17",
+      "kind": "solar",
+      "type": "Hybrid",
+      "magnitude": 1.013,
+      "duration": "1 min 16 s of totality",
+      "regions": "Western Australia, East Timor and West Papua",
+      "notes": "A rare hybrid eclipse that shifted between annular and total along its track."
+    },
+    {
+      "date": "2023-10-14",
+      "time": "18:00",
+      "kind": "solar",
+      "type": "Annular",
+      "magnitude": 0.952,
+      "duration": "5 min 17 s of annularity",
+      "regions": "Western United States, Central America, Colombia and Brazil",
+      "notes": "A ring of fire from Oregon to the Yucatán and on into South America."
+    },
+    {
+      "date": "2023-10-28",
+      "time": "20:14",
+      "kind": "lunar",
+      "type": "Partial",
+      "magnitude": 0.122,
+      "duration": "77 min of partial phase",
+      "regions": "Europe, Africa, Asia and Australia",
+      "notes": "A shallow bite out of the Moon's northern limb."
+    },
+    {
+      "date": "2024-04-08",
+      "time": "18:18",
+      "kind": "solar",
+      "type": "Total",
+      "magnitude": 1.057,
+      "duration": "4 min 28 s of totality",
+      "regions": "Mexico, the United States from Texas to Maine, and eastern Canada",
+      "notes": "A long totality near solar maximum, with a bright, structured corona."
+    },
+    {
+      "date": "2024-09-18",
+      "time": "02:44",
+      "kind": "lunar",
+      "type": "Partial",
+      "magnitude": 0.085,
+      "duration": "63 min of partial phase",
+      "regions": "The Americas, Europe and Africa",
+      "notes": "A small partial eclipse of a supermoon."
+    },
+    {
+      "date": "2024-10-02",
+      "time": "18:46",
+      "kind": "solar",
+      "type": "Annular",
+      "magnitude": 0.933,
+      "duration": "7 min 25 s of annularity",
+      "regions": "Easter Island, southern Chile and Argentina",
+      "notes": "One of the longest annular phases of the decade, mostly over open ocean."
+    },
+    {
+      "date": "2025-03-14",
+      "time": "06:59",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.178,
+      "duration": "65 min of totality",
+      "regions": "The Americas, the Pacific and western Europe",
+      "notes": "The first total lunar eclipse since November 2022."
+    },
+    {
+      "date": "2025-03-29",
+      "time": "10:47",
+      "kind": "solar",
+      "type": "Partial",
+      "magnitude": 0.938,
+      "duration": "up to 94% of the Sun covered",
+      "regions": "North-eastern North America, Europe, north-west Africa and the Arctic",
+      "notes": "A deeply partial sunrise eclipse for eastern Canada."
+    },
+    {
+      "date": "2025-09-07",
+      "time": "18:12",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.362,
+      "duration": "82 min of totality",
+      "regions": "Europe, Africa, Asia and Australia",
+      "notes": "A long, deep totality superbly placed for observers across Asia."
+    },
+    {
+      "date": "2025-09-21",
+      "time": "19:43",
+      "kind": "solar",
+      "type": "Partial",
+      "magnitude": 0.855,
+      "duration": "up to 86% of the Sun covered",
+      "regions": "New Zealand, the South Pacific and Antarctica",
+      "notes": "A far-southern partial eclipse on the eve of the September equinox."
+    },
+    {
+      "date": "2026-02-17",
+      "time": "12:13",
+      "kind": "solar",
+      "type": "Annular",
+      "magnitude": 0.963,
+      "duration": "2 min 20 s of annularity",
+      "regions": "Antarctica, with partial phases across southern Africa and South America",
+      "notes": "A ring of fire over the ice of East Antarctica."
+    },
+    {
+      "date": "2026-03-03",
+      "time": "11:34",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.151,
+      "duration": "58 min of totality",
+      "regions": "Eastern Asia, Australia, the Pacific and the Americas",
+      "notes": "Totality straddled the Pacific, with moonset shading the eclipse in Asia."
+    },
+    {
+      "date": "2026-08-12",
+      "time": "17:46",
+      "kind": "solar",
+      "type": "Total",
+      "magnitude": 1.039,
+      "duration": "2 min 18 s of totality",
+      "regions": "Greenland, Iceland and northern Spain",
+      "notes": "The first totality over mainland Europe since 1999, seen low in the evening sky from Spain."
+    },
+    {
+      "date": "2026-08-28",
+      "time": "04:14",
+      "kind": "lunar",
+      "type": "Partial",
+      "magnitude": 0.93,
+      "duration": "3 h 18 m of partial phase",
+      "regions": "The Americas, Europe and Africa",
+      "notes": "A deep partial eclipse that leaves only a sliver of the Moon in sunlight."
+    },
+    {
+      "date": "2027-02-06",
+      "time": "15:59",
+      "kind": "solar",
+      "type": "Annular",
+      "magnitude": 0.928,
+      "duration": "7 min 51 s of annularity",
+      "regions": "Chile, Argentina and the South Atlantic",
+      "notes": "A very long ring of fire crossing Patagonia."
+    },
+    {
+      "date": "2027-02-20",
+      "time": "23:13",
+      "kind": "lunar",
+      "type": "Penumbral",
+      "magnitude": 0.918,
+      "duration": "4 h 16 m in the penumbra",
+      "regions": "The Americas, Europe and Africa",
+      "notes": "A subtle shading of the Moon's disc rather than a visible bite."
+    },
+    {
+      "date": "2027-08-02",
+      "time": "10:07",
+      "kind": "solar",
+      "type": "Total",
+      "magnitude": 1.079,
+      "duration": "6 min 23 s of totality",
+      "regions": "Southern Spain, Morocco, Algeria, Libya, Egypt, Saudi Arabia and Yemen",
+      "notes": "The longest totality on land this century so far, with the track crossing Luxor."
+    },
+    {
+      "date": "2028-01-12",
+      "time": "04:13",
+      "kind": "lunar",
+      "type": "Partial",
+      "magnitude": 0.066,
+      "duration": "56 min of partial phase",
+      "regions": "The Americas, Europe and Africa",
+      "notes": "A grazing partial eclipse of the Moon's northern limb."
+    },
+    {
+      "date": "2028-01-26",
+      "time": "15:08",
+      "kind": "solar",
+      "type": "Annular",
+      "magnitude": 0.921,
+      "duration": "10 min 27 s of annularity",
+      "regions": "Ecuador, Peru, Brazil, Suriname, Portugal and Spain",
+      "notes": "One of the longest annular eclipses of the century, ending at sunset over Iberia."
+    },
+    {
+      "date": "2028-07-22",
+      "time": "02:56",
+      "kind": "solar",
+      "type": "Total",
+      "magnitude": 1.056,
+      "duration": "5 min 10 s of totality",
+      "regions": "Western and eastern Australia (including Sydney) and New Zealand",
+      "notes": "Totality passes directly over Sydney harbour for the first time since 1857."
+    },
+    {
+      "date": "2028-12-31",
+      "time": "16:52",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.246,
+      "duration": "71 min of totality",
+      "regions": "Europe, Africa, Asia and Australia",
+      "notes": "A New Year's Eve totality for the eastern hemisphere."
+    },
+    {
+      "date": "2029-06-26",
+      "time": "03:22",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.844,
+      "duration": "102 min of totality",
+      "regions": "The Americas, Europe and Africa",
+      "notes": "A central passage through Earth's shadow — one of the darkest eclipses of the century."
+    },
+    {
+      "date": "2029-12-20",
+      "time": "22:42",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.117,
+      "duration": "54 min of totality",
+      "regions": "The Americas, Europe, Africa and western Asia",
+      "notes": "A long winter night totality for the Atlantic-facing continents."
+    },
+    {
+      "date": "2030-06-01",
+      "time": "06:29",
+      "kind": "solar",
+      "type": "Annular",
+      "magnitude": 0.944,
+      "duration": "5 min 21 s of annularity",
+      "regions": "Algeria, Greece, Turkey, Russia, northern China and Japan",
+      "notes": "A ring of fire that sweeps from the Mediterranean to Hokkaido."
+    },
+    {
+      "date": "2030-11-25",
+      "time": "06:51",
+      "kind": "solar",
+      "type": "Total",
+      "magnitude": 1.047,
+      "duration": "3 min 44 s of totality",
+      "regions": "Botswana, South Africa and southern Australia",
+      "notes": "Totality crosses the Kalahari and later the coast near Adelaide."
+    },
+    {
+      "date": "2030-12-09",
+      "time": "22:28",
+      "kind": "lunar",
+      "type": "Total",
+      "magnitude": 1.084,
+      "duration": "44 min of totality",
+      "regions": "The Americas, Europe, Africa and western Asia",
+      "notes": "A shallow but unmistakable totality closing out the decade."
+    }
+  ]
+}
