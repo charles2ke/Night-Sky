@@ -92,12 +92,13 @@ Screenshots are written to `test-results/screenshots/` and are uploaded as build
 
 ## Automation
 
-- `.github/workflows/pages.yml` publishes the site to GitHub Pages on every push to `main` and
-  refreshes the live-site link in this README from the deployment URL.
 - `.github/workflows/tests.yml` runs the Playwright suite on pushes and pull requests and uploads
   the screenshots and HTML report.
 
-To enable publishing, set **Settings → Pages → Build and deployment → Source** to *GitHub Actions*.
+The site is published by GitHub Pages straight from the repository: set
+**Settings → Pages → Build and deployment → Source** to *Deploy from a branch* and pick `main` /
+`/ (root)`. Everything is plain HTML, CSS and ES modules with relative paths, so no build step is
+needed; the `.nojekyll` marker keeps Pages from running the files through Jekyll.
 
 ## Project layout
 
