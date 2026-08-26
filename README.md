@@ -43,6 +43,41 @@ npm start          # serves the site on http://127.0.0.1:4173
 
 The app is a static site — `index.html`, `styles.css`, `src/` and `data/` — with no build step.
 
+## MCP server
+
+`mcp/server.js` exposes the same astronomy engine to AI assistants over the
+[Model Context Protocol](https://modelcontextprotocol.io), using the stdio transport:
+
+```bash
+npm install
+npm run mcp
+```
+
+Tools:
+
+| Tool | What it returns |
+| --- | --- |
+| `resolve_place` | Coordinates, time zone and population for a place name or `"lat, lon"` string |
+| `moon_phase` | Phase name, illuminated fraction, age, distance and alt/az of the Moon |
+| `sky_snapshot` | Moon, naked-eye planets and brightest named stars above the horizon, optionally limited to the 140° panorama for one compass direction |
+| `visible_constellations` | Constellations above the horizon, with the altitude and azimuth of their centre |
+
+Every tool takes a place (`place`, or `latitude` and `longitude`, plus an optional IANA
+`timezone`) and a local `date` and `time`, and answers with JSON.
+
+Register it with an MCP client, for example in `.vscode/mcp.json` or a Claude Desktop config:
+
+```json
+{
+  "servers": {
+    "night-sky": {
+      "command": "node",
+      "args": ["/absolute/path/to/Night-Sky/mcp/server.js"]
+    }
+  }
+}
+```
+
 ## Tests
 
 Playwright covers rendering, Moon phases, direction changes, coordinate input and error handling:
@@ -74,6 +109,7 @@ To enable publishing, set **Settings → Pages → Build and deployment → Sour
 | `src/geocode.js` | Place lookup (Open-Meteo, with an offline fallback list) |
 | `src/app.js` | Form handling and wiring |
 | `data/` | Star catalogue and constellation lines |
+| `mcp/server.js` | Model Context Protocol server over stdio |
 | `tests/` | Playwright end-to-end tests |
 
 ## Credits
