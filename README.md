@@ -18,6 +18,17 @@ panorama in the style described by the
 You can toggle constellation lines and object names, adjust the light-pollution level, and
 download the rendered panorama as a PNG.
 
+## Galaxies page
+
+`galaxies.html` is an illustrated guide to the galaxies we know. It leads with our own **Milky
+Way** — its structure, Sagittarius A*, and where to look for it — and then lists fifteen other
+notable galaxies and deep-sky views, from Andromeda and the Magellanic Clouds to the Hubble
+Ultra-Deep Field. Content lives in `data/galaxies.json` and is rendered by `src/galaxies.js`.
+
+Every entry carries an openly licensed photograph (public-domain NASA/ESA Hubble releases and
+Creative Commons imagery from ESO and others) served from Wikimedia Commons, with the author and
+licence credited beneath each picture.
+
 ## Eclipses page
 
 `eclipses.html` (linked from the header of every page) lists solar and lunar eclipses:

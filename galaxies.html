@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Galaxies — the Milky Way and the other galaxies we know</title>
+    <meta
+      name="description"
+      content="An illustrated guide to the galaxies we know, from our own Milky Way to Andromeda, the Magellanic Clouds and the thousands of galaxies in the Hubble Ultra-Deep Field."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050b1b'/%3E%3Ccircle cx='21' cy='11' r='6' fill='%23f4efe2'/%3E%3Ccircle cx='18' cy='9' r='6' fill='%23050b1b'/%3E%3Ccircle cx='8' cy='22' r='1.4' fill='%23fff'/%3E%3Ccircle cx='14' cy='26' r='1' fill='%23fff'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <header class="masthead">
+      <h1>Galaxies</h1>
+      <p id="galaxy-count">
+        A guide to the galaxies we know, starting with the one we live in.
+      </p>
+      <nav class="site-nav" aria-label="Pages">
+        <a href="./index.html">Night sky</a>
+        <a href="./galaxies.html" aria-current="page">Galaxies</a>
+        <a href="./eclipses.html">Eclipses</a>
+      </nav>
+    </header>
+
+    <main>
+      <p id="status" class="status" role="status" aria-live="polite">Loading galaxies…</p>
+
+      <section id="milky-way" class="home-section" aria-label="The Milky Way"></section>
+
+      <section class="galaxies">
+        <h2 class="section-heading">Other galaxies we know</h2>
+        <p class="section-intro">
+          The observable universe holds hundreds of billions of galaxies. These are the ones that
+          are brightest, closest or most studied — several are visible from a dark back garden with
+          nothing more than binoculars.
+        </p>
+        <div id="galaxy-grid" class="galaxy-grid"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Photographs are open-source imagery hosted on
+        <a href="https://commons.wikimedia.org/">Wikimedia Commons</a>: public-domain NASA/ESA
+        Hubble releases and Creative Commons images from ESO and other observatories. Each picture
+        links to its source page, where the author and licence are recorded. Distances and sizes
+        follow the values published by
+        <a href="https://ned.ipac.caltech.edu/">NED</a> and ESA/Hubble.
+      </p>
+    </footer>
+
+    <script type="module" src="./src/galaxies.js"></script>
+  </body>
+</html>

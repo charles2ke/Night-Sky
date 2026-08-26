@@ -1,0 +1,360 @@
+{
+  "home": {
+    "id": "milky-way",
+    "name": "The Milky Way",
+    "designation": "Our home galaxy",
+    "type": "Barred spiral (SBbc)",
+    "constellation": "Visible all around us; the core lies towards Sagittarius",
+    "distance": "We are about 26,000 light-years from the galactic centre",
+    "diameter": "About 100,000 light-years across",
+    "stars": "100–400 billion stars",
+    "discovery": "Known since prehistory; resolved into stars by Galileo in 1610",
+    "summary": "The Milky Way is the barred spiral galaxy that contains the Sun, the Solar System and every star you can see with the unaided eye. Its disc is wrapped in spiral arms of gas, dust and young stars, and the Sun sits in a minor arm — the Orion Spur — roughly two thirds of the way out from the centre.",
+    "highlights": [
+      "A supermassive black hole, Sagittarius A*, of about 4.3 million solar masses sits at the centre.",
+      "The Sun takes roughly 225–250 million years to complete one orbit of the galactic centre.",
+      "From a dark site the galactic plane appears as a milky band split by the Great Rift, a lane of interstellar dust.",
+      "The Milky Way and Andromeda are approaching each other and will begin merging in about 4.5 billion years."
+    ],
+    "gallery": [
+      {
+        "file": "ESO-VLT-Laser-phot-33a-07.jpg",
+        "width": 1200,
+        "alt": "The Milky Way arching over the Very Large Telescope, with a laser guide star pointing at the galactic centre.",
+        "caption": "The galactic plane above ESO's Very Large Telescope in Chile.",
+        "credit": "ESO/Y. Beletsky",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "file": "Milky Way Arch.jpg",
+        "width": 1200,
+        "alt": "Panorama of the Milky Way arching across a dark night sky above a desert horizon.",
+        "caption": "The full arch of the Milky Way from a dark-sky site.",
+        "credit": "Bruno Gilli/ESO",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "file": "Milky Way IR Spitzer.jpg",
+        "width": 1200,
+        "alt": "Infrared mosaic of the Milky Way's disc showing dust lanes and star-forming regions.",
+        "caption": "Infrared view of the galactic plane, which sees straight through the dust.",
+        "credit": "NASA/JPL-Caltech/Spitzer Science Center",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      },
+      {
+        "file": "EHT Saggitarius A black hole.tif",
+        "width": 1200,
+        "alt": "Orange ring of glowing gas surrounding the dark shadow of the black hole Sagittarius A*.",
+        "caption": "Sagittarius A*, the supermassive black hole at the centre of the Milky Way.",
+        "credit": "Event Horizon Telescope Collaboration",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ]
+  },
+  "galaxies": [
+    {
+      "id": "andromeda",
+      "name": "Andromeda Galaxy",
+      "designation": "Messier 31, NGC 224",
+      "type": "Barred spiral (SA(s)b)",
+      "constellation": "Andromeda",
+      "distance": "2.5 million light-years",
+      "diameter": "About 152,000 light-years",
+      "magnitude": "3.4 — visible to the unaided eye",
+      "group": "Local Group",
+      "summary": "The largest galaxy in the Local Group and the most distant object most people can see without a telescope. It is closing on the Milky Way at about 110 km/s and the two will merge in roughly 4.5 billion years.",
+      "image": {
+        "file": "Andromeda Galaxy (with h-alpha).jpg",
+        "width": 900,
+        "alt": "The Andromeda Galaxy, a bright spiral seen at an angle with dark dust lanes and two companion galaxies.",
+        "credit": "Adam Evans",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+      }
+    },
+    {
+      "id": "triangulum",
+      "name": "Triangulum Galaxy",
+      "designation": "Messier 33, NGC 598",
+      "type": "Unbarred spiral (SA(s)cd)",
+      "constellation": "Triangulum",
+      "distance": "2.7 million light-years",
+      "diameter": "About 60,000 light-years",
+      "magnitude": "5.7 — a naked-eye challenge under dark skies",
+      "group": "Local Group",
+      "summary": "The third-largest member of the Local Group, a face-on spiral rich in star-forming regions including NGC 604, one of the largest known stellar nurseries.",
+      "image": {
+        "file": "VST snaps a very detailed view of the Triangulum Galaxy.jpg",
+        "width": 900,
+        "alt": "The Triangulum Galaxy seen face-on, with loosely wound blue spiral arms and pink nebulae.",
+        "credit": "ESO",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "large-magellanic-cloud",
+      "name": "Large Magellanic Cloud",
+      "designation": "LMC, ESO 56-115",
+      "type": "Irregular / barred dwarf spiral",
+      "constellation": "Dorado / Mensa",
+      "distance": "163,000 light-years",
+      "diameter": "About 32,000 light-years",
+      "magnitude": "0.9 — obvious to the unaided eye from the south",
+      "group": "Satellite of the Milky Way",
+      "summary": "The Milky Way's most prominent satellite galaxy and home to the Tarantula Nebula, the most active star-forming region known in the Local Group. Supernova 1987A exploded here.",
+      "image": {
+        "file": "Large Magellanic Cloud.jpg",
+        "width": 900,
+        "alt": "The Large Magellanic Cloud, a bright irregular smudge of stars with a central bar.",
+        "credit": "ESO/S. Brunier",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "small-magellanic-cloud",
+      "name": "Small Magellanic Cloud",
+      "designation": "SMC, NGC 292",
+      "type": "Dwarf irregular",
+      "constellation": "Tucana",
+      "distance": "200,000 light-years",
+      "diameter": "About 18,900 light-years",
+      "magnitude": "2.7",
+      "group": "Satellite of the Milky Way",
+      "summary": "A dwarf companion to the Milky Way, tidally distorted by its larger neighbour. Studies of its Cepheid variables gave Henrietta Leavitt the period–luminosity law used to measure the universe.",
+      "image": {
+        "file": "Small Magellanic Cloud (Digitized Sky Survey 2).jpg",
+        "width": 900,
+        "alt": "The Small Magellanic Cloud, an elongated cloud of stars beside the globular cluster 47 Tucanae.",
+        "credit": "ESO/Digitized Sky Survey 2",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "whirlpool",
+      "name": "Whirlpool Galaxy",
+      "designation": "Messier 51a, NGC 5194",
+      "type": "Grand-design spiral (SA(s)bc)",
+      "constellation": "Canes Venatici",
+      "distance": "23 million light-years",
+      "diameter": "About 76,000 light-years",
+      "magnitude": "8.4 — binoculars or a small telescope",
+      "group": "M51 Group",
+      "summary": "The first galaxy recognised as a spiral, in 1845. Its textbook arms are being wound up by an ongoing interaction with the small companion NGC 5195.",
+      "image": {
+        "file": "Messier51 sRGB.jpg",
+        "width": 900,
+        "alt": "The Whirlpool Galaxy, a face-on spiral with a smaller yellow companion galaxy at the end of one arm.",
+        "credit": "NASA, ESA, S. Beckwith (STScI) and the Hubble Heritage Team",
+        "license": "Public domain",
+        "licenseUrl": "https://hubblesite.org/copyright"
+      }
+    },
+    {
+      "id": "sombrero",
+      "name": "Sombrero Galaxy",
+      "designation": "Messier 104, NGC 4594",
+      "type": "Lenticular / unbarred spiral (SA(s)a)",
+      "constellation": "Virgo",
+      "distance": "31 million light-years",
+      "diameter": "About 49,000 light-years",
+      "magnitude": "8.0",
+      "group": "Virgo Cluster outskirts",
+      "summary": "Seen almost exactly edge-on, its brilliant bulge is cut by a sharp dust lane that gives the galaxy its hat-like shape. It hosts a billion-solar-mass central black hole.",
+      "image": {
+        "file": "M104 ngc4594 sombrero galaxy hi-res.jpg",
+        "width": 900,
+        "alt": "The Sombrero Galaxy, a glowing bulge crossed by a dark, sharply defined dust lane.",
+        "credit": "NASA/ESA and the Hubble Heritage Team (STScI/AURA)",
+        "license": "Public domain",
+        "licenseUrl": "https://hubblesite.org/copyright"
+      }
+    },
+    {
+      "id": "pinwheel",
+      "name": "Pinwheel Galaxy",
+      "designation": "Messier 101, NGC 5457",
+      "type": "Face-on spiral (SAB(rs)cd)",
+      "constellation": "Ursa Major",
+      "distance": "21 million light-years",
+      "diameter": "About 170,000 light-years",
+      "magnitude": "7.9",
+      "group": "M101 Group",
+      "summary": "A lopsided giant spiral nearly twice the size of the Milky Way, packed with bright H II regions and a frequent host of supernovae.",
+      "image": {
+        "file": "M101 hires STScI-PRC2006-10a.jpg",
+        "width": 900,
+        "alt": "The Pinwheel Galaxy seen face-on, with blue spiral arms studded with pink star-forming regions.",
+        "credit": "NASA, ESA, K. Kuntz (JHU) and the Hubble Heritage Team",
+        "license": "Public domain",
+        "licenseUrl": "https://hubblesite.org/copyright"
+      }
+    },
+    {
+      "id": "cigar",
+      "name": "Cigar Galaxy",
+      "designation": "Messier 82, NGC 3034",
+      "type": "Edge-on starburst",
+      "constellation": "Ursa Major",
+      "distance": "12 million light-years",
+      "diameter": "About 37,000 light-years",
+      "magnitude": "8.4",
+      "group": "M81 Group",
+      "summary": "A starburst galaxy forming stars ten times faster than the Milky Way after a close encounter with M81, driving a superwind of hot gas out of its disc.",
+      "image": {
+        "file": "M82 HST ACS 2006-14-a-large web.jpg",
+        "width": 900,
+        "alt": "The Cigar Galaxy seen edge-on, with red filaments of gas blasting out perpendicular to its disc.",
+        "credit": "NASA, ESA and the Hubble Heritage Team (STScI/AURA)",
+        "license": "Public domain",
+        "licenseUrl": "https://hubblesite.org/copyright"
+      }
+    },
+    {
+      "id": "centaurus-a",
+      "name": "Centaurus A",
+      "designation": "NGC 5128",
+      "type": "Peculiar lenticular / radio galaxy",
+      "constellation": "Centaurus",
+      "distance": "12 million light-years",
+      "diameter": "About 60,000 light-years",
+      "magnitude": "6.8",
+      "group": "Centaurus A/M83 Group",
+      "summary": "The closest active galactic nucleus, most likely the remnant of a merger. Relativistic jets from its central black hole make it one of the brightest radio sources in the sky.",
+      "image": {
+        "file": "Centaurus A (ESO).jpg",
+        "width": 900,
+        "alt": "Centaurus A, a bright elliptical galaxy crossed by a thick, warped band of dark dust.",
+        "credit": "ESO/WFI, MPIfR/ESO/APEX, NASA/CXC/CfA",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "messier-87",
+      "name": "Messier 87",
+      "designation": "M87, NGC 4486, Virgo A",
+      "type": "Supergiant elliptical (E0)",
+      "constellation": "Virgo",
+      "distance": "53 million light-years",
+      "diameter": "About 240,000 light-years",
+      "magnitude": "8.6",
+      "group": "Virgo Cluster (central galaxy)",
+      "summary": "A monster elliptical at the heart of the Virgo Cluster with trillions of stars and 12,000 globular clusters. Its black hole, M87*, was the first ever imaged, in 2019.",
+      "image": {
+        "file": "Messier 87 Hubble WikiSky.jpg",
+        "width": 900,
+        "alt": "Messier 87, a featureless glowing elliptical galaxy with a thin jet emerging from its core.",
+        "credit": "NASA, ESA and the Hubble Heritage Team (STScI/AURA)",
+        "license": "Public domain",
+        "licenseUrl": "https://hubblesite.org/copyright"
+      }
+    },
+    {
+      "id": "sculptor",
+      "name": "Sculptor Galaxy",
+      "designation": "NGC 253, Silver Coin Galaxy",
+      "type": "Intermediate spiral starburst",
+      "constellation": "Sculptor",
+      "distance": "11 million light-years",
+      "diameter": "About 90,000 light-years",
+      "magnitude": "8.0",
+      "group": "Sculptor Group",
+      "summary": "One of the brightest galaxies beyond the Local Group and the dustiest starburst spiral nearby, easily seen from southern latitudes in binoculars.",
+      "image": {
+        "file": "The Sculptor Galaxy in a new light.jpg",
+        "width": 900,
+        "alt": "The Sculptor Galaxy, a dusty spiral tilted at a steep angle with a bright core.",
+        "credit": "ESO/INAF-VST",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "bodes",
+      "name": "Bode's Galaxy",
+      "designation": "Messier 81, NGC 3031",
+      "type": "Grand-design spiral (SA(s)ab)",
+      "constellation": "Ursa Major",
+      "distance": "12 million light-years",
+      "diameter": "About 90,000 light-years",
+      "magnitude": "6.9",
+      "group": "M81 Group",
+      "summary": "A near-perfect spiral and the dominant galaxy of its group. Its gravitational tug on neighbouring M82 triggered that galaxy's starburst.",
+      "image": {
+        "file": "Messier 81 HST.jpg",
+        "width": 900,
+        "alt": "Bode's Galaxy, a symmetric spiral with tightly wound arms and a bright yellow core.",
+        "credit": "NASA, ESA and the Hubble Heritage Team (STScI/AURA)",
+        "license": "Public domain",
+        "licenseUrl": "https://hubblesite.org/copyright"
+      }
+    },
+    {
+      "id": "antennae",
+      "name": "Antennae Galaxies",
+      "designation": "NGC 4038 / NGC 4039",
+      "type": "Colliding spirals",
+      "constellation": "Corvus",
+      "distance": "45 million light-years",
+      "diameter": "About 500,000 light-years including the tidal tails",
+      "magnitude": "10.3",
+      "group": "NGC 4038 Group",
+      "summary": "Two spiral galaxies caught mid-collision. Tidal forces have flung out long streams of stars — the 'antennae' — while the crash triggers explosive star formation.",
+      "image": {
+        "file": "Antennae Galaxies reloaded.jpg",
+        "width": 900,
+        "alt": "The Antennae Galaxies, two merging galaxies glowing with blue star clusters and red gas.",
+        "credit": "NASA, ESA and the Hubble Heritage Team (STScI/AURA)",
+        "license": "Public domain",
+        "licenseUrl": "https://hubblesite.org/copyright"
+      }
+    },
+    {
+      "id": "ic-1101",
+      "name": "IC 1101",
+      "designation": "IC 1101, Abell 2029 BCG",
+      "type": "Supergiant elliptical / cD",
+      "constellation": "Serpens Caput",
+      "distance": "1.05 billion light-years",
+      "diameter": "Up to 4 million light-years including its diffuse halo",
+      "magnitude": "14.7",
+      "group": "Abell 2029 cluster",
+      "summary": "One of the largest galaxies known: a diffuse cD elliptical at the centre of a rich cluster, grown huge by swallowing its neighbours over billions of years.",
+      "image": {
+        "file": "A2029 SDSS.jpg",
+        "width": 900,
+        "alt": "The galaxy cluster Abell 2029 with the supergiant elliptical galaxy IC 1101 at its centre.",
+        "credit": "Sloan Digital Sky Survey",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "hubble-deep-field",
+      "name": "Hubble Ultra-Deep Field",
+      "designation": "HUDF",
+      "type": "Thousands of galaxies in one view",
+      "constellation": "Fornax",
+      "distance": "Up to 13 billion light-years",
+      "diameter": "A patch of sky about a tenth the width of the full Moon",
+      "magnitude": "Faintest objects around magnitude 30",
+      "group": "The distant universe",
+      "summary": "A long exposure of an apparently empty patch of sky that revealed roughly 10,000 galaxies, some seen as they were only a few hundred million years after the Big Bang.",
+      "image": {
+        "file": "Hubble ultra deep field high rez edit1.jpg",
+        "width": 900,
+        "alt": "A dark field scattered with thousands of galaxies of every shape, size and colour.",
+        "credit": "NASA, ESA and S. Beckwith (STScI) and the HUDF Team",
+        "license": "Public domain",
+        "licenseUrl": "https://hubblesite.org/copyright"
+      }
+    }
+  ]
+}
