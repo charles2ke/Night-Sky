@@ -32,6 +32,20 @@ export function daysUntil(eclipse, now = new Date()) {
   return Math.round((eclipseTime(eclipse) - now) / 86400000);
 }
 
+/** An emoji for every solar and lunar eclipse type in the catalogue. */
+const EMOJI = {
+  solar: { total: '🌑', annular: '💍', hybrid: '🌓', partial: '🌒' },
+  lunar: { total: '🔴', partial: '🌗', penumbral: '🌖' },
+};
+
+const FALLBACK_EMOJI = { solar: '☀️', lunar: '🌕' };
+
+export function eclipseEmoji(eclipse) {
+  const kind = String(eclipse.kind || '').toLowerCase();
+  const type = String(eclipse.type || '').toLowerCase();
+  return (EMOJI[kind] && EMOJI[kind][type]) || FALLBACK_EMOJI[kind] || '🌘';
+}
+
 function describe(eclipse) {
   return `${eclipse.type} ${eclipse.kind} eclipse`;
 }
@@ -49,12 +63,20 @@ function createItem(eclipse, now) {
   time.dateTime = eclipse.date;
   time.textContent = formatEclipseDate(eclipse.date);
 
+  const emoji = document.createElement('span');
+  emoji.className = 'eclipse-emoji';
+  emoji.dataset.kind = eclipse.kind;
+  emoji.textContent = eclipseEmoji(eclipse);
+  emoji.title = describe(eclipse);
+  emoji.setAttribute('role', 'img');
+  emoji.setAttribute('aria-label', describe(eclipse));
+
   const badge = document.createElement('span');
   badge.className = 'badge';
   badge.dataset.kind = eclipse.kind;
   badge.textContent = describe(eclipse);
 
-  header.append(time, badge);
+  header.append(emoji, time, badge);
 
   const facts = document.createElement('p');
   facts.className = 'eclipse-facts';
@@ -111,7 +133,8 @@ function render(catalogue) {
     const next = upcoming[0];
     const days = daysUntil(next, now);
     const when = days === 0 ? 'today' : days === 1 ? 'tomorrow' : `in ${days} days`;
-    els.nextUp.textContent = `Next: ${describe(next)} on ${formatEclipseDate(next.date)} — ${when}.`;
+    els.nextUp.textContent =
+      `Next: ${eclipseEmoji(next)} ${describe(next)} on ${formatEclipseDate(next.date)} — ${when}.`;
   }
 
   if (!past.length) {

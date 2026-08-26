@@ -61,6 +61,34 @@ test('the solar and lunar filters narrow the lists', async ({ page }) => {
   expect(await page.locator('.eclipse-list .eclipse').count()).toBe(all - solar);
 });
 
+test('each eclipse shows an emoji for its type', async ({ page }) => {
+  const EMOJI = {
+    'Total solar eclipse': '🌑',
+    'Annular solar eclipse': '💍',
+    'Hybrid solar eclipse': '🌓',
+    'Partial solar eclipse': '🌒',
+    'Total lunar eclipse': '🔴',
+    'Partial lunar eclipse': '🌗',
+    'Penumbral lunar eclipse': '🌖',
+  };
+
+  const items = await page.locator('.eclipse-list .eclipse').evaluateAll((nodes) =>
+    nodes.map((n) => ({
+      emoji: n.querySelector('.eclipse-emoji')?.textContent,
+      label: n.querySelector('.eclipse-emoji')?.getAttribute('aria-label'),
+      badge: n.querySelector('.badge')?.textContent,
+    }))
+  );
+
+  expect(items.length).toBeGreaterThan(0);
+  for (const item of items) {
+    expect(item.label).toBe(item.badge);
+    expect(item.emoji).toBe(EMOJI[item.badge]);
+  }
+
+  await expect(page.locator('#next-up')).toContainText(/🌑|💍|🌓|🌒|🔴|🌗|🌖/);
+});
+
 test('reports an error when the catalogue cannot be loaded', async ({ page }) => {
   await page.route('**/data/eclipses.json', (route) => route.fulfill({ status: 500, body: '' }));
   await page.reload();
