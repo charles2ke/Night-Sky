@@ -218,7 +218,7 @@ server.registerTool(
         .sort((a, b) => a.mag - b.mag)
         .slice(0, args.maxStars)
         .map((s) => ({ name: s.name, magnitude: s.mag, ...position(s) })),
-      starsAboveHorizon: sky.stars.filter((s) => s.alt >= args.minAltitude).length,
+      starsAboveMinAltitude: sky.stars.filter((s) => s.alt >= args.minAltitude).length,
     });
   }
 );
