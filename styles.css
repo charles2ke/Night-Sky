@@ -450,6 +450,11 @@ a {
   font-size: 1.05rem;
 }
 
+.eclipse-emoji {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
 .badge {
   font-size: 0.72rem;
   letter-spacing: 0.08em;
