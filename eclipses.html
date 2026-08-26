@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eclipses — past and upcoming solar and lunar eclipses</title>
+    <meta
+      name="description"
+      content="Browse solar and lunar eclipses: what is coming next, and a catalogue of the eclipses that have already happened."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050b1b'/%3E%3Ccircle cx='21' cy='11' r='6' fill='%23f4efe2'/%3E%3Ccircle cx='18' cy='9' r='6' fill='%23050b1b'/%3E%3Ccircle cx='8' cy='22' r='1.4' fill='%23fff'/%3E%3Ccircle cx='14' cy='26' r='1' fill='%23fff'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <header class="masthead">
+      <h1>Eclipses</h1>
+      <p>Solar and lunar eclipses that have already happened, and the ones still to come.</p>
+      <nav class="site-nav" aria-label="Pages">
+        <a href="./index.html">Night sky</a>
+        <a href="./galaxies.html">Galaxies</a>
+        <a href="./eclipses.html" aria-current="page">Eclipses</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="toggles" role="group" aria-label="Filter eclipses">
+        <label><input type="radio" name="kind" value="all" checked /> All eclipses</label>
+        <label><input type="radio" name="kind" value="solar" /> Solar only</label>
+        <label><input type="radio" name="kind" value="lunar" /> Lunar only</label>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite">Loading eclipses…</p>
+
+      <section id="upcoming" class="eclipses">
+        <h2>Upcoming</h2>
+        <p id="next-up" class="next-up"></p>
+        <ul id="upcoming-list" class="eclipse-list"></ul>
+      </section>
+
+      <section id="past" class="eclipses">
+        <h2>Past</h2>
+        <ul id="past-list" class="eclipse-list"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Eclipse dates, types and magnitudes follow the NASA/GSFC
+        <a href="https://eclipse.gsfc.nasa.gov/eclipse.html">Five Millennium Catalog of Solar and
+        Lunar Eclipses</a> by Espenak and Meeus. Times are the moment of greatest eclipse in UTC;
+        local circumstances vary with your position.
+      </p>
+    </footer>
+
+    <script type="module" src="./src/eclipses.js"></script>
+  </body>
+</html>

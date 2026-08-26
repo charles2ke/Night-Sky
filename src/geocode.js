@@ -21,6 +21,36 @@ const FALLBACK_PLACES = [
 ];
 
 const COORDINATE_PATTERN = /^\s*(-?\d+(?:\.\d+)?)\s*[,;/ ]\s*(-?\d+(?:\.\d+)?)\s*$/;
+const MAX_QUERY_LENGTH = 120;
+
+/**
+ * Check that a place query could plausibly be resolved, and throw a helpful
+ * error when it cannot. Returns the trimmed query.
+ */
+export function validatePlaceQuery(query) {
+  const text = typeof query === 'string' ? query.trim() : '';
+  if (!text) {
+    throw new Error('Please enter a place, for example "Gurugram, India" or "28.4595, 77.0266".');
+  }
+  if (text.length > MAX_QUERY_LENGTH) {
+    throw new Error(`Please enter a shorter place name (up to ${MAX_QUERY_LENGTH} characters).`);
+  }
+  const numbers = COORDINATE_PATTERN.exec(text);
+  if (numbers) {
+    const latitude = Number(numbers[1]);
+    const longitude = Number(numbers[2]);
+    if (Math.abs(latitude) > 90 || Math.abs(longitude) > 180) {
+      throw new Error(
+        'Coordinates are out of range: latitude must be between -90 and 90, longitude between -180 and 180.'
+      );
+    }
+    return text;
+  }
+  if (!/\p{Letter}/u.test(text)) {
+    throw new Error('Please enter a place name, or coordinates as "latitude, longitude".');
+  }
+  return text;
+}
 
 /** Parse a raw "lat, lon" string, or return null when it is not coordinates. */
 export function parseCoordinates(query) {
@@ -59,13 +89,14 @@ function searchFallback(query) {
  * service is queried, with the built-in gazetteer as a fallback.
  */
 export async function resolvePlace(query, { fetchImpl = globalThis.fetch } = {}) {
-  const coords = parseCoordinates(query);
+  const text = validatePlaceQuery(query);
+  const coords = parseCoordinates(text);
   if (coords) return { ...coords, label: coords.name };
 
   if (fetchImpl) {
     try {
       const url = new URL('https://geocoding-api.open-meteo.com/v1/search');
-      url.searchParams.set('name', query.trim());
+      url.searchParams.set('name', text);
       url.searchParams.set('count', '1');
       url.searchParams.set('language', 'en');
       url.searchParams.set('format', 'json');
@@ -92,9 +123,9 @@ export async function resolvePlace(query, { fetchImpl = globalThis.fetch } = {})
     }
   }
 
-  const fallback = searchFallback(query);
+  const fallback = searchFallback(text);
   if (fallback) return fallback;
-  throw new Error(`Could not find "${query}". Try another place, or enter "latitude, longitude".`);
+  throw new Error(`Could not find "${text}". Try another place, or enter "latitude, longitude".`);
 }
 
 export { FALLBACK_PLACES };

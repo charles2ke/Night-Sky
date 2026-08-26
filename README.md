@@ -29,6 +29,19 @@ Every entry carries an openly licensed photograph (public-domain NASA/ESA Hubble
 Creative Commons imagery from ESO and others) served from Wikimedia Commons, with the author and
 licence credited beneath each picture.
 
+## Eclipses page
+
+`eclipses.html` (linked from the header of every page) lists solar and lunar eclipses:
+
+- **Upcoming** — events still ahead of today, soonest first, with a countdown in days.
+- **Past** — events that have already happened, most recent first.
+
+Radio buttons filter the catalogue to solar or lunar eclipses only. Each entry shows the type,
+the instant of greatest eclipse in UTC, the duration and magnitude, where it was (or will be)
+visible from, and a short note. The data lives in `data/eclipses.json` and follows the NASA/GSFC
+[Five Millennium Catalog of Solar and Lunar Eclipses](https://eclipse.gsfc.nasa.gov/eclipse.html);
+the past/upcoming split is computed from the current date in the browser.
+
 ## What is computed vs. illustrated
 
 Celestial positions are computed, not invented:
@@ -115,12 +128,13 @@ needed; the `.nojekyll` marker keeps Pages from running the files through Jekyll
 
 | Path | Purpose |
 | --- | --- |
-| `index.html`, `styles.css` | Page shell and styling |
+| `index.html`, `eclipses.html`, `styles.css` | Page shells and styling |
 | `src/astro.js` | Time, precession, alt/az, Sun, Moon and planet calculations |
 | `src/render.js` | Canvas panorama renderer, overlay and compass strip |
 | `src/geocode.js` | Place lookup (Open-Meteo, with an offline fallback list) |
 | `src/app.js` | Form handling and wiring |
-| `data/` | Star catalogue and constellation lines |
+| `src/eclipses.js` | Eclipse catalogue loading, past/upcoming split and rendering |
+| `data/` | Star catalogue, constellation lines and the eclipse catalogue |
 | `mcp/server.js` | Model Context Protocol server over stdio |
 | `tests/` | Playwright end-to-end tests |
 

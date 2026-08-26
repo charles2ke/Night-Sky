@@ -226,18 +226,18 @@ a {
 .site-nav {
   display: flex;
   justify-content: center;
-  gap: 1.4rem;
-  margin-top: 1.1rem;
-  font-size: 0.82rem;
-  letter-spacing: 0.12em;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .site-nav a {
   text-decoration: none;
   color: var(--muted);
-  padding-bottom: 0.25rem;
   border-bottom: 1px solid transparent;
+  padding-bottom: 0.15rem;
 }
 
 .site-nav a:hover,
@@ -403,4 +403,82 @@ a {
   .home-galaxy-body {
     grid-template-columns: 1fr;
   }
+}
+
+.eclipses {
+  margin-top: 2rem;
+}
+
+.eclipses h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.next-up {
+  margin: 0 0 1rem;
+  color: var(--text);
+}
+
+.eclipse-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: 1rem;
+}
+
+.eclipse {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+}
+
+.eclipse-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.eclipse-date {
+  font-size: 1.05rem;
+}
+
+.badge {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  color: var(--muted);
+}
+
+.badge[data-kind='solar'] {
+  color: #ffd79a;
+  border-color: #5a4526;
+}
+
+.badge[data-kind='lunar'] {
+  color: #cdd7ff;
+  border-color: #313f68;
+}
+
+.eclipse-facts,
+.eclipse-where,
+.eclipse-notes,
+.eclipse-countdown {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.eclipse-countdown {
+  color: var(--accent);
 }

@@ -18,9 +18,10 @@
     <header class="masthead">
       <h1>Night Sky</h1>
       <p>Enter a date and a place to reconstruct the stars, planets and the Moon as seen from there.</p>
-      <nav class="site-nav" aria-label="Primary">
+      <nav class="site-nav" aria-label="Pages">
         <a href="./index.html" aria-current="page">Night sky</a>
         <a href="./galaxies.html">Galaxies</a>
+        <a href="./eclipses.html">Eclipses</a>
       </nav>
     </header>
 
@@ -28,7 +29,7 @@
       <form id="sky-form" class="controls" autocomplete="off">
         <div class="field">
           <label for="place">Place</label>
-          <input id="place" name="place" type="text" value="Gurugram, India" placeholder="City, or latitude, longitude" required />
+          <input id="place" name="place" type="text" value="Gurugram, India" placeholder="City, or latitude, longitude" maxlength="120" required />
         </div>
         <div class="field">
           <label for="date">Date</label>
