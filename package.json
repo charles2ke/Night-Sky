@@ -6,9 +6,14 @@
   "type": "module",
   "scripts": {
     "start": "npx --yes http-server . -p 4173 -c-1",
+    "mcp": "node mcp/server.js",
     "test": "playwright test"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.4.3"
   }
 }
