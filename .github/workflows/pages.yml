@@ -25,6 +25,8 @@ jobs:
           cp index.html styles.css _site/
           cp -r src data _site/
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
