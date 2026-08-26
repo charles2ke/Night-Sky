@@ -106,6 +106,27 @@ test('reports an error for an unknown place', async ({ page }) => {
   await expect(page.locator('#status')).toHaveAttribute('data-state', 'error');
 });
 
+test('rejects a blank place', async ({ page }) => {
+  await page.fill('#place', '   ');
+  await page.click('#generate');
+  await expect(page.locator('#status')).toHaveAttribute('data-state', 'error');
+  await expect(page.locator('#status')).toContainText('Please enter a place');
+});
+
+test('rejects coordinates outside the valid range', async ({ page }) => {
+  await page.fill('#place', '120, 200');
+  await page.click('#generate');
+  await expect(page.locator('#status')).toHaveAttribute('data-state', 'error');
+  await expect(page.locator('#status')).toContainText('out of range');
+});
+
+test('rejects a place name without any letters', async ({ page }) => {
+  await page.fill('#place', '!!!');
+  await page.click('#generate');
+  await expect(page.locator('#status')).toHaveAttribute('data-state', 'error');
+  await expect(page.locator('#status')).toContainText('coordinates as "latitude, longitude"');
+});
+
 test('constellation lines can be toggled off', async ({ page }) => {
   await generate(page, { place: 'Gurugram, India', date: '1995-02-01', time: '00:00', direction: 'S' });
   const withLines = await litPixelFraction(page);
