@@ -30,6 +30,23 @@
     <main>
       <p id="status" class="status" role="status" aria-live="polite">Loading galaxies…</p>
 
+      <form id="galaxy-search" class="galaxy-search" role="search" hidden>
+        <label for="galaxy-search-input">Find a galaxy</label>
+        <div class="galaxy-search-row">
+          <input
+            id="galaxy-search-input"
+            name="galaxy"
+            type="search"
+            list="galaxy-options"
+            placeholder="Andromeda Galaxy"
+            autocomplete="off"
+          />
+          <button type="submit">Go</button>
+        </div>
+        <datalist id="galaxy-options"></datalist>
+        <p class="search-message" role="status" aria-live="polite"></p>
+      </form>
+
       <section id="milky-way" class="home-section" aria-label="The Milky Way"></section>
 
       <section class="galaxies">
