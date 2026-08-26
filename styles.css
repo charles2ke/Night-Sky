@@ -312,12 +312,46 @@ a {
   color: var(--muted);
 }
 
+.galaxy-search {
+  margin: 0 0 1.4rem;
+}
+
+.galaxy-search label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.galaxy-search-row {
+  display: flex;
+  gap: 0.6rem;
+  max-width: 32rem;
+}
+
+.galaxy-search input {
+  flex: 1;
+}
+
+.galaxy-search .search-message {
+  margin: 0.5rem 0 0;
+  min-height: 1.2em;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 .home-galaxy {
   margin-top: 1.6rem;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 1.4rem;
+}
+
+.home-galaxy-header {
+  cursor: pointer;
 }
 
 .home-galaxy-header h2 {
@@ -365,18 +399,31 @@ a {
 }
 
 .galaxy-card {
-  display: flex;
-  flex-direction: column;
+  display: block;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 1rem;
+  height: max-content;
+}
+
+.galaxy-card-summary {
+  cursor: pointer;
+}
+
+.galaxy-card-summary .eyebrow {
+  margin: 0.15rem 0 0;
 }
 
 .galaxy-card h3 {
-  margin: 0.9rem 0 0;
+  margin: 0;
+  display: inline;
   font-size: 1.1rem;
   font-weight: 500;
+}
+
+.galaxy-card .shot {
+  margin-top: 0.9rem;
 }
 
 .galaxy-card-body p {

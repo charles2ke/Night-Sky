@@ -49,8 +49,39 @@ test('the pages link to each other', async ({ page }) => {
   await expect(page.locator('.masthead h1')).toHaveText('Galaxies');
 });
 
-test('reports an error when the galaxy data cannot be loaded', async ({ page }) => {
-  await page.route('**/data/galaxies.json', (route) => route.fulfill({ status: 500, body: '' }));
+test('every galaxy is a collapsible section that starts closed', async ({ page }) => {
+  const card = page.locator('#andromeda');
+  await expect(card).toHaveJSProperty('open', false);
+  await expect(card.locator('.galaxy-card-body')).toBeHidden();
+
+  await card.locator('summary').click();
+  await expect(card).toHaveJSProperty('open', true);
+  await expect(card.locator('.galaxy-card-body')).toBeVisible();
+
+  // The Milky Way is collapsible too, but opens by default.
+  const home = page.locator('#milky-way details');
+  await expect(home).toHaveJSProperty('open', true);
+  await home.locator('summary').click();
+  await expect(home).toHaveJSProperty('open', false);
+});
+
+test('the search bar opens a galaxy and scrolls to it', async ({ page }) => {
+  await expect(page.locator('#galaxy-options option')).toHaveCount(16);
+
+  await page.fill('#galaxy-search-input', 'Sombrero Galaxy');
+  await page.click('#galaxy-search button[type="submit"]');
+
+  const card = page.locator('#sombrero');
+  await expect(card).toHaveJSProperty('open', true);
+  await expect(card.locator('.galaxy-card-body')).toBeInViewport();
+  await expect(page.locator('.search-message')).toHaveText('');
+
+  await page.fill('#galaxy-search-input', 'not a galaxy');
+  await page.click('#galaxy-search button[type="submit"]');
+  await expect(page.locator('.search-message')).toContainText('No galaxy matches');
+});
+
+test('reports an error when the galaxy data cannot be loaded', async ({ page }) => {  await page.route('**/data/galaxies.json', (route) => route.fulfill({ status: 500, body: '' }));
   await page.goto('/galaxies.html');
   await expect(page.locator('#status')).toHaveAttribute('data-state', 'error');
 });
