@@ -32,6 +32,9 @@
   "engines": {
     "node": ">=20"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "npx --yes http-server . -p 4173 -c-1",
     "mcp": "node mcp/server.js",
