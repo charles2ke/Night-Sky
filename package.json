@@ -1,7 +1,7 @@
 {
   "name": "@charles2ke/night-sky-mcp",
   "version": "1.0.0",
-  "description": "Web app that reconstructs the stars, planets and Moon for a given date and place.",
+  "description": "MCP server that reconstructs the stars, planets and Moon for a given date and place.",
   "type": "module",
   "bin": {
     "night-sky-mcp": "mcp/server.js"
