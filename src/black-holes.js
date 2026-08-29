@@ -4,7 +4,7 @@ import { buildFacts, buildFigure, el, svgEl } from './commons.js';
 
 const DIAGRAM = { width: 1000, height: 210 };
 
-/** Human-readable size of an event horizon, from kilometres to light-days. */
+/** Human-readable size of an event horizon, from kilometres to astronomical units. */
 export function formatHorizon(km) {
   if (!Number.isFinite(km)) return '';
   if (km >= 1e9) return `${(km / 149597870.7).toLocaleString('en-GB', { maximumFractionDigits: 1 })} AU across`;
@@ -32,7 +32,7 @@ export function buildHorizonDiagram(blackHoles) {
   const min = Math.log10(Math.min(...sized.map((hole) => hole.horizonKm)));
   const max = Math.log10(Math.max(...sized.map((hole) => hole.horizonKm)));
   const span = Math.max(max - min, 1);
-  const length = (km) => 6 + ((Math.log10(km) - min) / span) * (right - left);
+  const length = (km) => Math.max(6, ((Math.log10(km) - min) / span) * (right - left));
 
   sized
     .slice()
