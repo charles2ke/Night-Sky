@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Black holes — the ones we know, from Cygnus X-1 to M87*</title>
+    <meta
+      name="description"
+      content="An illustrated guide to the black holes we know: stellar-mass, intermediate-mass and supermassive, with their masses, event horizons and pictures."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050b1b'/%3E%3Ccircle cx='21' cy='11' r='6' fill='%23f4efe2'/%3E%3Ccircle cx='18' cy='9' r='6' fill='%23050b1b'/%3E%3Ccircle cx='8' cy='22' r='1.4' fill='%23fff'/%3E%3Ccircle cx='14' cy='26' r='1' fill='%23fff'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <header class="masthead">
+      <h1>Black holes</h1>
+      <p id="black-hole-count">The black holes we know, and how big they really are.</p>
+      <nav class="site-nav" aria-label="Pages">
+        <a href="./index.html">Night sky</a>
+        <a href="./galaxies.html">Galaxies</a>
+        <a href="./eclipses.html">Eclipses</a>
+      </nav>
+      <nav class="sub-nav" aria-label="Galaxies sections">
+        <span>Under Galaxies:</span>
+        <a href="./galaxies.html#solar-system">Our planets</a>
+        <a href="./black-holes.html" aria-current="page">Black holes</a>
+      </nav>
+    </header>
+
+    <main>
+      <p id="black-hole-intro" class="section-intro"></p>
+
+      <section class="black-hole-classes" aria-label="Classes of black hole">
+        <h2 class="section-heading">Three sizes of black hole</h2>
+        <div id="class-legend"></div>
+      </section>
+
+      <section class="black-hole-scale" aria-label="Event horizon comparison">
+        <h2 class="section-heading">Event horizons compared</h2>
+        <p class="section-intro">
+          Each bar is one black hole. The scale is logarithmic: every equal step along a bar means
+          ten times the size, because the largest horizon here is more than a billion times wider
+          than the smallest.
+        </p>
+        <figure id="horizon-diagram" class="diagram"></figure>
+      </section>
+
+      <div class="toggles" role="group" aria-label="Filter black holes">
+        <label><input type="radio" name="hole-class" value="all" checked /> All</label>
+        <label><input type="radio" name="hole-class" value="stellar" /> Stellar-mass</label>
+        <label><input type="radio" name="hole-class" value="intermediate" /> Intermediate-mass</label>
+        <label><input type="radio" name="hole-class" value="supermassive" /> Supermassive</label>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite">Loading black holes…</p>
+
+      <section class="galaxies" aria-label="Known black holes">
+        <div id="black-hole-grid" class="galaxy-grid"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Photographs and illustrations are open-source imagery hosted on
+        <a href="https://commons.wikimedia.org/">Wikimedia Commons</a>: public-domain NASA releases
+        and Creative Commons images from ESO, ESA/Hubble and the
+        <a href="https://eventhorizontelescope.org/">Event Horizon Telescope</a>. Masses and
+        distances follow the published measurements; where a black hole has only been inferred, the
+        entry says so.
+      </p>
+    </footer>
+
+    <script type="module" src="./src/black-holes.js"></script>
+  </body>
+</html>

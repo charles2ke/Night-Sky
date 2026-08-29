@@ -1,0 +1,340 @@
+{
+  "intro": "A black hole is a region where gravity is so strong that nothing, not even light, can escape. Only a handful have been imaged directly; the rest are known from the orbits of the stars around them, from the X-rays of gas falling in, or from the gravitational waves released when two of them merge. Masses are given in solar masses (M☉) and the diameter quoted is that of the event horizon.",
+  "classes": [
+    {
+      "id": "stellar",
+      "name": "Stellar-mass",
+      "range": "3 – 100 M☉",
+      "description": "Left behind when a massive star collapses at the end of its life. Most are found because they pull gas from a companion star, which glows in X-rays as it falls in."
+    },
+    {
+      "id": "intermediate",
+      "name": "Intermediate-mass",
+      "range": "100 – 100,000 M☉",
+      "description": "The rarest and least understood class, sitting between collapsed stars and the giants in galactic centres. Candidates are found in dense star clusters and in unusually bright X-ray sources."
+    },
+    {
+      "id": "supermassive",
+      "name": "Supermassive",
+      "range": "10⁵ – 10¹¹ M☉",
+      "description": "Millions to tens of billions of solar masses, sitting at the centre of nearly every large galaxy. When they feed they light up as quasars, the brightest sustained sources in the universe."
+    }
+  ],
+  "blackHoles": [
+    {
+      "id": "sagittarius-a-star",
+      "name": "Sagittarius A*",
+      "designation": "Sgr A*",
+      "class": "supermassive",
+      "mass": "4.3 million M☉",
+      "horizonKm": 25400000,
+      "distance": "26,000 light-years",
+      "constellation": "Sagittarius",
+      "galaxy": "The Milky Way",
+      "discovery": "Radio source found in 1974; imaged by the Event Horizon Telescope in 2022",
+      "summary": "The black hole at the centre of our own galaxy. Decades of tracking the orbits of stars around it — work that won the 2020 Nobel Prize in Physics — pinned down its mass long before the Event Horizon Telescope produced its picture of the glowing ring of gas around its shadow.",
+      "image": {
+        "file": "EHT Saggitarius A black hole.tif",
+        "width": 900,
+        "alt": "Orange ring of glowing gas surrounding the dark shadow of the black hole Sagittarius A*.",
+        "credit": "Event Horizon Telescope Collaboration",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "messier-87-star",
+      "name": "M87*",
+      "designation": "Messier 87 central black hole",
+      "class": "supermassive",
+      "mass": "6.5 billion M☉",
+      "horizonKm": 38000000000,
+      "distance": "53 million light-years",
+      "constellation": "Virgo",
+      "galaxy": "Messier 87",
+      "discovery": "Jet noted in 1918; first black hole ever imaged, in 2019",
+      "summary": "The first black hole to be photographed. The Event Horizon Telescope combined radio dishes across the planet into an Earth-sized instrument to resolve the shadow at the heart of the giant elliptical galaxy M87, which also drives a jet of plasma 5,000 light-years long.",
+      "image": {
+        "file": "Black hole - Messier 87 crop max res.jpg",
+        "width": 900,
+        "alt": "The first image of a black hole: a bright orange ring of light around the dark shadow of M87*.",
+        "credit": "Event Horizon Telescope Collaboration",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "ton-618",
+      "name": "TON 618",
+      "designation": "Quasar TON 618",
+      "class": "supermassive",
+      "mass": "About 40 billion M☉",
+      "horizonKm": 240000000000,
+      "distance": "10.4 billion light-years",
+      "constellation": "Canes Venatici",
+      "galaxy": "Host galaxy of the quasar TON 618",
+      "discovery": "Catalogued in 1957; recognised as a quasar in 1970",
+      "summary": "One of the most massive black holes known. Its event horizon would swallow the entire Solar System many times over, and the quasar it powers outshines its host galaxy so completely that the galaxy itself has never been seen.",
+      "image": {
+        "file": "Artist's rendering ULAS J1120+0641.jpg",
+        "width": 900,
+        "alt": "Artist's impression of a quasar: a brilliant disc of hot gas spiralling into a distant supermassive black hole.",
+        "credit": "ESO/M. Kornmesser",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "phoenix-a",
+      "name": "Phoenix A",
+      "designation": "Central black hole of the Phoenix Cluster",
+      "class": "supermassive",
+      "mass": "About 100 billion M☉ (estimated)",
+      "horizonKm": 590000000000,
+      "distance": "5.7 billion light-years",
+      "constellation": "Phoenix",
+      "galaxy": "Phoenix Cluster central galaxy",
+      "discovery": "Cluster identified in 2010 by the South Pole Telescope",
+      "summary": "The black hole at the centre of the Phoenix Cluster is among the largest ever estimated. The cluster around it forms stars at a furious rate — hundreds of solar masses a year — because the cooling gas at its core is not fully held back by the black hole's outbursts.",
+      "image": {
+        "file": "Phoenix Cluster.jpg",
+        "width": 900,
+        "alt": "X-ray and optical composite of the Phoenix Cluster, a bright galaxy cluster with a cooling core.",
+        "credit": "NASA/CXC/MIT/M. McDonald et al.",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    },
+    {
+      "id": "andromeda-central",
+      "name": "P2 (Andromeda's core)",
+      "designation": "M31*",
+      "class": "supermassive",
+      "mass": "110 – 230 million M☉",
+      "horizonKm": 1000000000,
+      "distance": "2.5 million light-years",
+      "constellation": "Andromeda",
+      "galaxy": "Andromeda Galaxy (M31)",
+      "discovery": "Double nucleus resolved by the Hubble Space Telescope in 1993",
+      "summary": "The black hole in our nearest large neighbour sits inside a curious double nucleus: a lopsided disc of old red stars orbits it, so from Earth the core of Andromeda appears to have two peaks of light.",
+      "image": {
+        "file": "Andromeda Galaxy (with h-alpha).jpg",
+        "width": 900,
+        "alt": "The Andromeda Galaxy, a bright spiral seen at an angle, whose core hosts a supermassive black hole.",
+        "credit": "Adam Evans",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+      }
+    },
+    {
+      "id": "centaurus-a-central",
+      "name": "Centaurus A's engine",
+      "designation": "NGC 5128 central black hole",
+      "class": "supermassive",
+      "mass": "About 55 million M☉",
+      "horizonKm": 325000000,
+      "distance": "12 million light-years",
+      "constellation": "Centaurus",
+      "galaxy": "Centaurus A (NGC 5128)",
+      "discovery": "Radio galaxy identified in 1949; black hole mass measured from 1999",
+      "summary": "The nearest active galactic nucleus. Gas funnelling into the black hole launches radio jets a million light-years long, which the Event Horizon Telescope resolved in 2021 right down to the point where they are launched.",
+      "image": {
+        "file": "Centaurus A (ESO).jpg",
+        "width": 900,
+        "alt": "Centaurus A, an elliptical galaxy crossed by a thick dark dust lane, powered by a central black hole.",
+        "credit": "ESO",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "cygnus-x-1",
+      "name": "Cygnus X-1",
+      "designation": "HDE 226868 companion",
+      "class": "stellar",
+      "mass": "21 M☉",
+      "horizonKm": 124,
+      "distance": "7,200 light-years",
+      "constellation": "Cygnus",
+      "galaxy": "The Milky Way",
+      "discovery": "X-ray source found in 1964; accepted as a black hole in the 1970s",
+      "summary": "The first object widely accepted as a black hole, and the subject of a famous bet between Stephen Hawking and Kip Thorne. It pulls a stream of gas from a blue supergiant companion; the gas heats to millions of degrees as it spirals in and shines in X-rays.",
+      "image": {
+        "file": "Cygnus X-1.jpg",
+        "width": 900,
+        "alt": "Artist's impression of Cygnus X-1 drawing a stream of gas from its blue supergiant companion star.",
+        "credit": "NASA/CXC/M. Weiss",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    },
+    {
+      "id": "v404-cygni",
+      "name": "V404 Cygni",
+      "designation": "GS 2023+338",
+      "class": "stellar",
+      "mass": "9 M☉",
+      "horizonKm": 53,
+      "distance": "7,800 light-years",
+      "constellation": "Cygnus",
+      "galaxy": "The Milky Way",
+      "discovery": "Nova recorded in 1938; identified as a black hole binary in 1989",
+      "summary": "A black hole that spends decades quiet and then erupts. Its 2015 outburst made it briefly one of the brightest X-ray sources in the sky and let astronomers watch a wobbling, warped accretion disc in real time.",
+      "image": {
+        "file": "V404 Cygni.jpg",
+        "width": 900,
+        "alt": "Artist's impression of the black hole V404 Cygni pulling material from its companion star into a bright accretion disc.",
+        "credit": "ESA/Hubble",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "a0620-00",
+      "name": "A0620−00",
+      "designation": "V616 Monocerotis",
+      "class": "stellar",
+      "mass": "6.6 M☉",
+      "horizonKm": 39,
+      "distance": "3,300 light-years",
+      "constellation": "Monoceros",
+      "galaxy": "The Milky Way",
+      "discovery": "X-ray nova of 1975; mass measured in 1986",
+      "summary": "One of the closest known black holes to Earth and the second object to be confirmed as one. Today it is dormant, and its orange dwarf companion circles it every 7.75 hours.",
+      "image": {
+        "file": "Black hole with accretion disk and jet.jpg",
+        "width": 900,
+        "alt": "Illustration of a stellar-mass black hole surrounded by a hot accretion disc of gas drawn from a companion star.",
+        "credit": "NASA/JPL-Caltech",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    },
+    {
+      "id": "gaia-bh1",
+      "name": "Gaia BH1",
+      "designation": "Gaia DR3 4373465352415301632",
+      "class": "stellar",
+      "mass": "9.6 M☉",
+      "horizonKm": 57,
+      "distance": "1,560 light-years",
+      "constellation": "Ophiuchus",
+      "galaxy": "The Milky Way",
+      "discovery": "Announced in 2022 from Gaia astrometry",
+      "summary": "The nearest known black hole. It is dark and quiet — no gas is falling in — and was found purely from the wobble it imposes on a Sun-like star that orbits it every 186 days.",
+      "image": {
+        "file": "Artist's impression of a black hole and its companion star.jpg",
+        "width": 900,
+        "alt": "Artist's impression of a quiet, dormant black hole orbited by a Sun-like companion star.",
+        "credit": "ESO/L. Calçada",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "gaia-bh3",
+      "name": "Gaia BH3",
+      "designation": "Gaia DR3 4318465066420528000",
+      "class": "stellar",
+      "mass": "33 M☉",
+      "horizonKm": 195,
+      "distance": "1,930 light-years",
+      "constellation": "Aquila",
+      "galaxy": "The Milky Way",
+      "discovery": "Announced in 2024 from Gaia data",
+      "summary": "The most massive stellar black hole known in our galaxy, and the second closest. Its companion is an ancient, metal-poor giant star, which suggests the black hole formed from one of the first generations of massive stars.",
+      "image": {
+        "file": "Artist's impression of the Gaia BH3 system.jpg",
+        "width": 900,
+        "alt": "Artist's impression of the Gaia BH3 system, a massive dormant black hole orbited by an old giant star.",
+        "credit": "ESO/L. Calçada",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "id": "gw150914",
+      "name": "GW150914 remnant",
+      "designation": "First gravitational-wave detection",
+      "class": "stellar",
+      "mass": "62 M☉ (from a 36 + 29 M☉ merger)",
+      "horizonKm": 366,
+      "distance": "1.3 billion light-years",
+      "constellation": "Southern sky, poorly localised",
+      "galaxy": "Unknown host galaxy",
+      "discovery": "Detected by LIGO on 14 September 2015",
+      "summary": "Not seen but heard: two black holes spiralled together and radiated three solar masses of energy as ripples in spacetime. The signal lasted a fifth of a second, confirmed a century-old prediction of general relativity and opened gravitational-wave astronomy.",
+      "image": {
+        "file": "LIGO measurement of gravitational waves.svg",
+        "width": 900,
+        "alt": "The LIGO gravitational-wave signal of GW150914, showing the rising chirp of two merging black holes.",
+        "credit": "Caltech/MIT/LIGO Laboratory",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      }
+    },
+    {
+      "id": "m82-x-1",
+      "name": "M82 X-1",
+      "designation": "Ultraluminous X-ray source in M82",
+      "class": "intermediate",
+      "mass": "About 400 M☉ (candidate)",
+      "horizonKm": 2400,
+      "distance": "12 million light-years",
+      "constellation": "Ursa Major",
+      "galaxy": "Cigar Galaxy (M82)",
+      "discovery": "Identified as an intermediate-mass candidate in 2014",
+      "summary": "The brightest X-ray source in the starburst galaxy M82, far too luminous for an ordinary stellar black hole. The rhythm of its X-ray flickering points to a black hole of a few hundred solar masses — one of the best intermediate-mass candidates.",
+      "image": {
+        "file": "M82 HST ACS 2006-14-a-large web.jpg",
+        "width": 900,
+        "alt": "The Cigar Galaxy M82, an edge-on starburst galaxy venting red filaments of glowing hydrogen.",
+        "credit": "NASA, ESA and the Hubble Heritage Team",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    },
+    {
+      "id": "hlx-1",
+      "name": "HLX-1",
+      "designation": "ESO 243-49 HLX-1",
+      "class": "intermediate",
+      "mass": "About 20,000 M☉ (candidate)",
+      "horizonKm": 118000,
+      "distance": "290 million light-years",
+      "constellation": "Phoenix",
+      "galaxy": "ESO 243-49",
+      "discovery": "Found in 2009 in XMM-Newton data",
+      "summary": "A hyper-luminous X-ray source sitting off to one side of the galaxy ESO 243-49, probably the stripped core of a small galaxy that was swallowed. It remains the strongest case for an intermediate-mass black hole.",
+      "image": {
+        "file": "HLX-1 in ESO 243-49.jpg",
+        "width": 900,
+        "alt": "Hubble image of the galaxy ESO 243-49 with the intermediate-mass black hole candidate HLX-1 marked at its edge.",
+        "credit": "NASA, ESA and S. Farrell",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    },
+    {
+      "id": "omega-centauri",
+      "name": "Omega Centauri's core",
+      "designation": "NGC 5139 central mass",
+      "class": "intermediate",
+      "mass": "At least 8,200 M☉ (candidate)",
+      "horizonKm": 48000,
+      "distance": "17,000 light-years",
+      "constellation": "Centaurus",
+      "galaxy": "The Milky Way (globular cluster)",
+      "discovery": "Fast-moving central stars reported in 2024",
+      "summary": "Seven stars racing through the centre of the largest globular cluster in the Milky Way move too fast to be held by the cluster's stars alone. The simplest explanation is an intermediate-mass black hole hiding in the crowd.",
+      "image": {
+        "file": "Omega Centauri by ESO.jpg",
+        "width": 900,
+        "alt": "The globular cluster Omega Centauri, a dense ball of millions of stars, imaged from Chile.",
+        "credit": "ESO/INAF-VST/OmegaCAM",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    }
+  ]
+}

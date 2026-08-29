@@ -85,3 +85,29 @@ test('reports an error when the galaxy data cannot be loaded', async ({ page }) 
   await page.goto('/galaxies.html');
   await expect(page.locator('#status')).toHaveAttribute('data-state', 'error');
 });
+
+test('shows our planets graphically under the Milky Way', async ({ page }) => {
+  const section = page.locator('#solar-system');
+  await expect(section.locator('h3')).toHaveText('Our planets — the Solar System');
+
+  // Eight planets, drawn to scale and listed as cards.
+  await expect(section.locator('.planet-card')).toHaveCount(8);
+  await expect(section.locator('.scale-diagram .planet-disc')).toHaveCount(8);
+  await expect(section.locator('.orbit-diagram .orbit-mark')).toHaveCount(8);
+
+  // Jupiter's disc is the largest, Mercury's the smallest.
+  const radii = await section
+    .locator('.planet-disc')
+    .evaluateAll((nodes) =>
+      Object.fromEntries(nodes.map((node) => [node.dataset.planet, Number(node.getAttribute('r'))]))
+    );
+  expect(radii.jupiter).toBeGreaterThan(radii.saturn);
+  expect(radii.mercury).toBeLessThan(radii.earth);
+
+  const earth = page.locator('#earth');
+  await earth.locator('summary').click();
+  await expect(earth).toContainText('6,371 km');
+  await expect(earth).toContainText('the Moon');
+
+  await page.screenshot({ path: `${SCREENSHOT_DIR}/solar-system.png`, fullPage: true });
+});
