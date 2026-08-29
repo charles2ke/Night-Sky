@@ -1,65 +1,8 @@
 // Renders the galaxy information page from data/galaxies.json.
-const COMMONS_FILE_PATH = 'https://commons.wikimedia.org/wiki/Special:FilePath/';
-const COMMONS_FILE_PAGE = 'https://commons.wikimedia.org/wiki/File:';
+import { buildFacts, buildFigure, el, imageUrl, sourceUrl } from './commons.js';
+import { renderSolarSystem } from './solar-system.js';
 
-/** Wikimedia Commons thumbnail URL for a freely licensed file. */
-export function imageUrl(file, width = 900) {
-  const name = String(file).replace(/ /g, '_');
-  return `${COMMONS_FILE_PATH}${encodeURIComponent(name)}?width=${width}`;
-}
-
-/** Commons description page, where the licence and author are documented. */
-export function sourceUrl(file) {
-  return `${COMMONS_FILE_PAGE}${encodeURIComponent(String(file).replace(/ /g, '_'))}`;
-}
-
-function el(tag, className, text) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (text != null) node.textContent = text;
-  return node;
-}
-
-/** Figure with the image plus its author and licence, as the licences require. */
-function buildFigure(image, { width, caption } = {}) {
-  const figure = el('figure', 'shot');
-  const img = el('img');
-  img.src = imageUrl(image.file, width || image.width || 900);
-  img.alt = image.alt;
-  img.loading = 'lazy';
-  img.decoding = 'async';
-  // If the image cannot be loaded (offline, or the file was renamed) keep the
-  // layout intact and show the placeholder background instead of a broken icon.
-  img.addEventListener('error', () => figure.classList.add('shot--unavailable'));
-  figure.append(img);
-
-  const figcaption = el('figcaption');
-  if (caption) figcaption.append(el('span', 'shot-caption', caption));
-
-  const credit = el('span', 'credit');
-  credit.append(document.createTextNode('Image: '));
-  const source = el('a', null, image.credit);
-  source.href = sourceUrl(image.file);
-  source.rel = 'noopener noreferrer';
-  credit.append(source, document.createTextNode(' — '));
-  const licence = el('a', null, image.license);
-  licence.href = image.licenseUrl;
-  licence.rel = 'noopener noreferrer';
-  credit.append(licence);
-
-  figcaption.append(credit);
-  figure.append(figcaption);
-  return figure;
-}
-
-function buildFacts(pairs) {
-  const dl = el('dl', 'facts');
-  for (const [term, value] of pairs) {
-    if (!value) continue;
-    dl.append(el('dt', null, term), el('dd', null, value));
-  }
-  return dl;
-}
+export { imageUrl, sourceUrl };
 
 function buildHome(home) {
   const article = el('details', 'home-galaxy');
@@ -167,6 +110,41 @@ export function revealGalaxy(id, doc = document) {
   return true;
 }
 
+/**
+ * Scrolls to the section named in the URL. The photographs are still loading at
+ * that point and push the page around as they arrive, so the scroll is repeated
+ * while images settle — until the reader takes over.
+ */
+function followHash(target) {
+  if (!revealGalaxy(target)) return;
+  const settle = new AbortController();
+  const { signal } = settle;
+  for (const event of ['wheel', 'keydown', 'touchstart']) {
+    window.addEventListener(event, () => settle.abort(), { signal });
+  }
+  for (const image of document.images) {
+    if (!image.complete) image.addEventListener('load', () => revealGalaxy(target), { signal });
+  }
+  setTimeout(() => settle.abort(), 4000);
+}
+
+/**
+ * The planets are a sub-section of the Milky Way, with their own data file. A
+ * failure here only empties that section: the galaxies themselves still stand.
+ */
+async function loadSolarSystem(container) {
+  if (!container) return;
+  try {
+    const response = await fetch('./data/planets.json');
+    if (!response.ok) throw new Error(`Could not load planet data (${response.status})`);
+    renderSolarSystem(await response.json(), container);
+  } catch (error) {
+    const message = el('p', 'status', error instanceof Error ? error.message : 'Could not load planet data.');
+    message.dataset.state = 'error';
+    container.replaceChildren(message);
+  }
+}
+
 async function init() {
   const status = document.getElementById('status');
   const targets = {
@@ -184,6 +162,10 @@ async function init() {
     const data = await response.json();
     renderGalaxies(data, targets);
     setUpSearch(data, targets.search);
+    await loadSolarSystem(document.getElementById('solar-system'));
+    // The sections are built after the page loads, so a link such as
+    // galaxies.html#solar-system has to be followed once they exist.
+    if (location.hash.length > 1) followHash(decodeURIComponent(location.hash.slice(1)));
     if (status) {
       status.textContent = '';
       status.hidden = true;

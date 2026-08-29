@@ -1,0 +1,186 @@
+{
+  "intro": "The Milky Way holds hundreds of billions of stars; one of them is the Sun, and eight planets orbit it. The diagrams below are drawn to scale from the numbers in the table: the discs compare the planets' true sizes, and the track compares their average distances from the Sun.",
+  "sun": {
+    "name": "The Sun",
+    "radiusKm": 696340,
+    "color": "#ffd66b"
+  },
+  "planets": [
+    {
+      "id": "mercury",
+      "name": "Mercury",
+      "type": "Terrestrial",
+      "radiusKm": 2439.7,
+      "distanceAu": 0.387,
+      "distanceKm": "57.9 million km",
+      "orbit": "88 Earth days",
+      "day": "176 Earth days (sunrise to sunrise)",
+      "moons": "None",
+      "temperature": "−170 °C to 430 °C",
+      "color": "#a9a19b",
+      "summary": "The smallest planet and the closest to the Sun. It has almost no atmosphere, so its cratered surface swings between scorching day and freezing night, and water ice survives in craters at its poles that never see sunlight.",
+      "image": {
+        "file": "Mercury in color - Prockter07-edit1.jpg",
+        "width": 700,
+        "alt": "Mercury photographed by MESSENGER, a grey heavily cratered world lit from the left.",
+        "credit": "NASA/Johns Hopkins APL/Carnegie Institution",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "type": "Terrestrial",
+      "radiusKm": 6051.8,
+      "distanceAu": 0.723,
+      "distanceKm": "108.2 million km",
+      "orbit": "225 Earth days",
+      "day": "243 Earth days, spinning backwards",
+      "moons": "None",
+      "temperature": "About 465 °C at the surface",
+      "color": "#e0c07a",
+      "summary": "Earth's twin in size, wrapped in a crushing carbon-dioxide atmosphere and clouds of sulphuric acid. The runaway greenhouse effect makes it the hottest planet in the Solar System, hotter even than Mercury.",
+      "image": {
+        "file": "Venus-real color.jpg",
+        "width": 700,
+        "alt": "Venus seen as a featureless pale yellow disc, its surface hidden beneath thick sulphuric acid clouds.",
+        "credit": "NASA/JPL-Caltech",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    },
+    {
+      "id": "earth",
+      "name": "Earth",
+      "type": "Terrestrial",
+      "radiusKm": 6371,
+      "distanceAu": 1,
+      "distanceKm": "149.6 million km (1 AU)",
+      "orbit": "365.25 days",
+      "day": "23 h 56 min",
+      "moons": "1 — the Moon",
+      "temperature": "−89 °C to 57 °C",
+      "color": "#4d8fd6",
+      "summary": "The only place in the universe where life is known to exist. Liquid water covers 71 per cent of the surface, and a magnetic field and an oxygen-rich atmosphere shield it from the solar wind.",
+      "image": {
+        "file": "The Earth seen from Apollo 17.jpg",
+        "width": 700,
+        "alt": "The Blue Marble: Earth photographed from Apollo 17, showing Africa, Antarctica and swirling white clouds.",
+        "credit": "NASA/Apollo 17 crew",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    },
+    {
+      "id": "mars",
+      "name": "Mars",
+      "type": "Terrestrial",
+      "radiusKm": 3389.5,
+      "distanceAu": 1.524,
+      "distanceKm": "227.9 million km",
+      "orbit": "687 Earth days",
+      "day": "24 h 37 min",
+      "moons": "2 — Phobos and Deimos",
+      "temperature": "−140 °C to 20 °C",
+      "color": "#c1552f",
+      "summary": "The rusty desert world that rovers have been exploring since 1997. It carries the tallest volcano in the Solar System, Olympus Mons, and dry river valleys that show water once ran across its surface.",
+      "image": {
+        "file": "OSIRIS Mars true color.jpg",
+        "width": 700,
+        "alt": "Mars in true colour, an orange-red globe with dark markings and a bright polar cap.",
+        "credit": "ESA/MPS for OSIRIS Team",
+        "license": "CC BY-SA 3.0 IGO",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/igo/"
+      }
+    },
+    {
+      "id": "jupiter",
+      "name": "Jupiter",
+      "type": "Gas giant",
+      "radiusKm": 69911,
+      "distanceAu": 5.203,
+      "distanceKm": "778.5 million km",
+      "orbit": "11.9 Earth years",
+      "day": "9 h 56 min — the fastest spin of any planet",
+      "moons": "95 confirmed, including Io, Europa, Ganymede and Callisto",
+      "temperature": "About −145 °C at the cloud tops",
+      "color": "#d8a878",
+      "summary": "The giant of the Solar System, more massive than all the other planets combined. Its Great Red Spot is a storm wider than Earth that has raged for centuries, and its moon Europa hides a salty ocean under kilometres of ice.",
+      "image": {
+        "file": "Jupiter and its shrunken Great Red Spot.jpg",
+        "width": 700,
+        "alt": "Jupiter photographed by Hubble, banded in cream and orange clouds with the Great Red Spot below the equator.",
+        "credit": "NASA, ESA, A. Simon and M.H. Wong",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    },
+    {
+      "id": "saturn",
+      "name": "Saturn",
+      "type": "Gas giant",
+      "radiusKm": 58232,
+      "distanceAu": 9.537,
+      "distanceKm": "1.43 billion km",
+      "orbit": "29.4 Earth years",
+      "day": "10 h 33 min",
+      "moons": "146 confirmed, including Titan and Enceladus",
+      "temperature": "About −178 °C at the cloud tops",
+      "color": "#e3cb96",
+      "summary": "The ringed planet: billions of chunks of water ice, from grains to house-sized boulders, spread in a sheet only tens of metres thick. Its moon Titan has lakes of liquid methane, and Enceladus sprays water from an underground ocean.",
+      "image": {
+        "file": "Saturn during Equinox.jpg",
+        "width": 700,
+        "alt": "Saturn seen by Cassini at equinox, its rings casting a narrow shadow across the golden cloud tops.",
+        "credit": "NASA/JPL/Space Science Institute",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    },
+    {
+      "id": "uranus",
+      "name": "Uranus",
+      "type": "Ice giant",
+      "radiusKm": 25362,
+      "distanceAu": 19.191,
+      "distanceKm": "2.87 billion km",
+      "orbit": "84 Earth years",
+      "day": "17 h 14 min, tipped on its side",
+      "moons": "28 confirmed, including Titania and Miranda",
+      "temperature": "About −224 °C — the coldest atmosphere in the Solar System",
+      "color": "#9fd8e2",
+      "summary": "An ice giant knocked onto its side, most likely by a colossal early impact, so its poles take turns facing the Sun through an 84-year orbit. Methane in its atmosphere gives it its pale blue-green colour.",
+      "image": {
+        "file": "Uranus2.jpg",
+        "width": 700,
+        "alt": "Uranus imaged by Voyager 2 as a smooth, featureless pale blue-green disc.",
+        "credit": "NASA/JPL-Caltech",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    },
+    {
+      "id": "neptune",
+      "name": "Neptune",
+      "type": "Ice giant",
+      "radiusKm": 24622,
+      "distanceAu": 30.069,
+      "distanceKm": "4.5 billion km",
+      "orbit": "164.8 Earth years",
+      "day": "16 h 6 min",
+      "moons": "16 confirmed, including Triton",
+      "temperature": "About −214 °C at the cloud tops",
+      "color": "#3f5fd0",
+      "summary": "The outermost planet, found in 1846 by pointing a telescope where mathematics said it had to be. Winds there reach 2,000 km/h, the fastest measured anywhere, and its moon Triton orbits backwards, so it was probably captured.",
+      "image": {
+        "file": "Neptune Full.jpg",
+        "width": 700,
+        "alt": "Neptune photographed by Voyager 2, a deep blue globe with the dark oval of the Great Dark Spot.",
+        "credit": "NASA/JPL-Caltech",
+        "license": "Public domain",
+        "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    }
+  ]
+}

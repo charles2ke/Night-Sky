@@ -598,3 +598,228 @@ a {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+.sub-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.sub-nav a {
+  text-decoration: none;
+  color: var(--muted);
+  border-bottom: 1px solid transparent;
+}
+
+.sub-nav a:hover,
+.sub-nav a[aria-current='page'] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* Scale diagrams: the planets and the event horizons are drawn from the data,
+   so the proportions on screen are the real ones. */
+.diagram {
+  margin: 0 0 1.6rem;
+  padding: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.diagram-title {
+  margin-bottom: 0.6rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.scale-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* The Sun is drawn to scale, so its disc runs far off the size diagram. */
+  overflow: hidden;
+}
+
+.horizon-diagram {
+  overflow: visible;
+}
+
+.scale-diagram .diagram-label {
+  fill: var(--text);
+  font-size: 13px;
+}
+
+.scale-diagram .diagram-value {
+  fill: var(--muted);
+  font-size: 12px;
+}
+
+.orbit-track {
+  stroke: var(--line);
+  stroke-width: 2;
+}
+
+.horizon-bar {
+  fill: var(--accent);
+  fill-opacity: 0.85;
+}
+
+.horizon-bar[data-class='stellar'] {
+  fill: #7fb2ff;
+}
+
+.horizon-bar[data-class='intermediate'] {
+  fill: #c9a6ff;
+}
+
+.horizon-bar[data-class='supermassive'] {
+  fill: #ffb066;
+}
+
+.solar-system-panel {
+  margin-top: 1.4rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.4rem;
+}
+
+.solar-system-header {
+  cursor: pointer;
+}
+
+.solar-system-header h3 {
+  margin: 0 0 0.2rem;
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline;
+}
+
+.solar-system-body {
+  margin-top: 1.1rem;
+}
+
+.planet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.1rem;
+}
+
+.planet-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.9rem;
+  height: max-content;
+}
+
+.planet-card-summary {
+  cursor: pointer;
+}
+
+.planet-card h4 {
+  margin: 0;
+  display: inline;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.planet-card .eyebrow {
+  margin: 0.15rem 0 0;
+}
+
+.planet-card .shot {
+  margin-top: 0.8rem;
+}
+
+.planet-card-body p {
+  margin: 0.8rem 0;
+}
+
+.planet-swatch {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
+
+.class-legend {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1.2rem;
+  margin: 0 0 1.6rem;
+  font-size: 0.92rem;
+}
+
+.class-legend dt {
+  color: var(--text);
+}
+
+.class-legend dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+.black-hole-card {
+  display: block;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem;
+  height: max-content;
+}
+
+.black-hole-card[hidden] {
+  display: none;
+}
+
+.black-hole-summary {
+  cursor: pointer;
+}
+
+.black-hole-summary h3 {
+  margin: 0;
+  display: inline;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.black-hole-summary .eyebrow {
+  margin: 0.15rem 0 0.4rem;
+}
+
+.black-hole-card .shot {
+  margin-top: 0.9rem;
+}
+
+.black-hole-body p {
+  margin: 0.8rem 0;
+}
+
+.badge[data-class='stellar'] {
+  color: #7fb2ff;
+}
+
+.badge[data-class='intermediate'] {
+  color: #c9a6ff;
+}
+
+.badge[data-class='supermassive'] {
+  color: #ffb066;
+}
+
+@media (max-width: 720px) {
+  .class-legend {
+    grid-template-columns: 1fr;
+  }
+}

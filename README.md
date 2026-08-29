@@ -29,6 +29,28 @@ Every entry carries an openly licensed photograph (public-domain NASA/ESA Hubble
 Creative Commons imagery from ESO and others) served from Wikimedia Commons, with the author and
 licence credited beneath each picture.
 
+Two sub-sections hang off the galaxies:
+
+- **Our planets** — a sub-section of the Milky Way (`galaxies.html#solar-system`) that draws the
+  Solar System from `data/planets.json`: an SVG diagram of the eight planets to scale with each
+  other and with the limb of the Sun, a second diagram of their average distances from the Sun on a
+  square-root scale, and a photograph and fact sheet for every planet. Rendered by
+  `src/solar-system.js`.
+- **Black holes** — see below.
+
+## Black holes page
+
+`black-holes.html`, linked from the sub-menu under *Galaxies* on every page, is a guide to the
+black holes we know: stellar-mass remnants such as Cygnus X-1 and Gaia BH1, intermediate-mass
+candidates such as HLX-1, and the supermassive giants Sagittarius A*, M87* and TON 618. Each entry
+gives the mass, the size of the event horizon, the distance and how it was found, alongside an
+openly licensed picture.
+
+A logarithmic bar chart compares every event horizon on the page — from a few dozen kilometres for
+a collapsed star to thousands of astronomical units for the largest quasar engines — and radio
+buttons filter the catalogue by class. The data lives in `data/black-holes.json` and is rendered by
+`src/black-holes.js`.
+
 ## Eclipses page
 
 `eclipses.html` (linked from the header of every page) lists solar and lunar eclipses:
@@ -133,13 +155,16 @@ needed; the `.nojekyll` marker keeps Pages from running the files through Jekyll
 
 | Path | Purpose |
 | --- | --- |
-| `index.html`, `eclipses.html`, `styles.css` | Page shells and styling |
+| `index.html`, `galaxies.html`, `eclipses.html`, `black-holes.html`, `styles.css` | Page shells and styling |
 | `src/astro.js` | Time, precession, alt/az, Sun, Moon and planet calculations |
 | `src/render.js` | Canvas panorama renderer, overlay and compass strip |
 | `src/geocode.js` | Place lookup (Open-Meteo, with an offline fallback list) |
 | `src/app.js` | Form handling and wiring |
 | `src/eclipses.js` | Eclipse catalogue loading, past/upcoming split and rendering |
-| `data/` | Star catalogue, constellation lines and the eclipse catalogue |
+| `src/galaxies.js`, `src/solar-system.js` | Galaxy page, and the Solar System scale diagrams |
+| `src/black-holes.js` | Black hole catalogue, event-horizon chart and class filter |
+| `src/commons.js` | Wikimedia Commons image URLs and the shared figure/fact builders |
+| `data/` | Star catalogue, constellation lines, galaxies, planets, black holes and eclipses |
 | `mcp/server.js` | Model Context Protocol server over stdio |
 | `tests/` | Playwright end-to-end tests |
 
