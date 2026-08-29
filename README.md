@@ -69,8 +69,21 @@ The app is a static site — `index.html`, `styles.css`, `src/` and `data/` — 
 
 ## MCP server
 
-`mcp/server.js` exposes the same astronomy engine to AI assistants over the
-[Model Context Protocol](https://modelcontextprotocol.io), using the stdio transport:
+Use the Night Sky astronomy engine from an MCP client with
+[`npx`](https://docs.npmjs.com/cli/using-npx):
+
+```json
+{
+  "servers": {
+    "night-sky": {
+      "command": "npx",
+      "args": ["-y", "@charles2ke/night-sky-mcp"]
+    }
+  }
+}
+```
+
+The server uses the stdio transport. To run it from a local clone instead:
 
 ```bash
 npm install
@@ -93,19 +106,6 @@ The sky tools (`moon_phase`, `sky_snapshot`, `visible_constellations`) take a pl
 `latitude` and `longitude`, plus an optional IANA `timezone`) and a local `date` and `time`;
 `eclipses`, `on_this_day` and `galaxies` read the bundled catalogues in `data/`. Every tool answers
 with JSON.
-
-Register it with an MCP client, for example in `.vscode/mcp.json` or a Claude Desktop config:
-
-```json
-{
-  "servers": {
-    "night-sky": {
-      "command": "node",
-      "args": ["/absolute/path/to/Night-Sky/mcp/server.js"]
-    }
-  }
-}
-```
 
 ## Tests
 

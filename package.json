@@ -1,9 +1,40 @@
 {
-  "name": "night-sky",
+  "name": "@charles2ke/night-sky-mcp",
   "version": "1.0.0",
-  "private": true,
-  "description": "Web app that reconstructs the stars, planets and Moon for a given date and place.",
+  "description": "MCP server that reconstructs the stars, planets and Moon for a given date and place.",
   "type": "module",
+  "bin": {
+    "night-sky-mcp": "mcp/server.js"
+  },
+  "files": [
+    "mcp/",
+    "src/",
+    "data/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charles2ke/Night-Sky.git"
+  },
+  "homepage": "https://github.com/charles2ke/Night-Sky#readme",
+  "bugs": {
+    "url": "https://github.com/charles2ke/Night-Sky/issues"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "astronomy",
+    "stars",
+    "moon",
+    "eclipses",
+    "night-sky"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "npx --yes http-server . -p 4173 -c-1",
     "mcp": "node mcp/server.js",
