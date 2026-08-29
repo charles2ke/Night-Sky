@@ -110,6 +110,24 @@ export function revealGalaxy(id, doc = document) {
   return true;
 }
 
+/**
+ * Scrolls to the section named in the URL. The photographs are still loading at
+ * that point and push the page around as they arrive, so the scroll is repeated
+ * while images settle — until the reader takes over.
+ */
+function followHash(target) {
+  if (!revealGalaxy(target)) return;
+  const settle = new AbortController();
+  const { signal } = settle;
+  for (const event of ['wheel', 'keydown', 'touchstart']) {
+    window.addEventListener(event, () => settle.abort(), { signal });
+  }
+  for (const image of document.images) {
+    if (!image.complete) image.addEventListener('load', () => revealGalaxy(target), { signal });
+  }
+  setTimeout(() => settle.abort(), 4000);
+}
+
 /** The planets are a sub-section of the Milky Way, with their own data file. */
 async function loadSolarSystem(container) {
   if (!container) return;
@@ -136,6 +154,9 @@ async function init() {
     renderGalaxies(data, targets);
     setUpSearch(data, targets.search);
     await loadSolarSystem(document.getElementById('solar-system'));
+    // The sections are built after the page loads, so a link such as
+    // galaxies.html#solar-system has to be followed once they exist.
+    if (location.hash.length > 1) followHash(decodeURIComponent(location.hash.slice(1)));
     if (status) {
       status.textContent = '';
       status.hidden = true;

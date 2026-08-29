@@ -111,3 +111,9 @@ test('shows our planets graphically under the Milky Way', async ({ page }) => {
 
   await page.screenshot({ path: `${SCREENSHOT_DIR}/solar-system.png`, fullPage: true });
 });
+
+test('a deep link from another page scrolls to the planets', async ({ page }) => {
+  await page.goto('/black-holes.html');
+  await page.click('.sub-nav a[href="./galaxies.html#solar-system"]');
+  await expect(page.locator('#solar-system .solar-system-header')).toBeInViewport();
+});
