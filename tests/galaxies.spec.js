@@ -117,3 +117,11 @@ test('a deep link from another page scrolls to the planets', async ({ page }) =>
   await page.click('.sub-nav a[href="./galaxies.html#solar-system"]');
   await expect(page.locator('#solar-system .solar-system-header')).toBeInViewport();
 });
+
+test('a failure to load the planets leaves the galaxies in place', async ({ page }) => {
+  await page.route('**/data/planets.json', (route) => route.fulfill({ status: 500, body: '' }));
+  await page.goto('/galaxies.html');
+  await expect(page.locator('#solar-system .status')).toHaveAttribute('data-state', 'error');
+  await expect(page.locator('#galaxy-grid .galaxy-card').first()).toBeVisible();
+  await expect(page.locator('#status')).toBeHidden();
+});

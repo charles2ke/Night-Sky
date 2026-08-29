@@ -128,12 +128,21 @@ function followHash(target) {
   setTimeout(() => settle.abort(), 4000);
 }
 
-/** The planets are a sub-section of the Milky Way, with their own data file. */
+/**
+ * The planets are a sub-section of the Milky Way, with their own data file. A
+ * failure here only empties that section: the galaxies themselves still stand.
+ */
 async function loadSolarSystem(container) {
   if (!container) return;
-  const response = await fetch('./data/planets.json');
-  if (!response.ok) throw new Error(`Could not load planet data (${response.status})`);
-  renderSolarSystem(await response.json(), container);
+  try {
+    const response = await fetch('./data/planets.json');
+    if (!response.ok) throw new Error(`Could not load planet data (${response.status})`);
+    renderSolarSystem(await response.json(), container);
+  } catch (error) {
+    const message = el('p', 'status', error instanceof Error ? error.message : 'Could not load planet data.');
+    message.dataset.state = 'error';
+    container.replaceChildren(message);
+  }
 }
 
 async function init() {
