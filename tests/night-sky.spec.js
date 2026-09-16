@@ -152,15 +152,24 @@ test('ignores malformed URL parameters', async ({ page }) => {
   await expect(page.locator('#date')).toHaveValue('1995-02-01');
   await expect(page.locator('#time')).toHaveValue('00:00');
   await expect(page.locator('#direction')).toHaveValue('S');
+
+  await page.goto('/index.html?date=2024-02-31&time=25%3A99');
+  await expect(page.locator('#status')).toContainText('Night sky over', { timeout: 20000 });
+  await expect(page.locator('#date')).toHaveValue('1995-02-01');
+  await expect(page.locator('#time')).toHaveValue('00:00');
 });
 
 test('the download link stays available after adjusting the controls', async ({ page }) => {
   await generate(page, { place: 'Gurugram, India', date: '1995-02-01', time: '00:00', direction: 'S' });
+  const download = page.locator('#download');
+  await expect(download).toBeVisible();
+  await expect.poll(() => download.getAttribute('href')).toContain('data:image/png');
+  const before = await download.getAttribute('href');
+
   await page.locator('#light-pollution').evaluate((el) => {
     el.value = '80';
     el.dispatchEvent(new Event('input', { bubbles: true }));
   });
-  const download = page.locator('#download');
-  await expect(download).toBeVisible();
+  await expect.poll(() => download.getAttribute('href')).not.toBe(before);
   await expect.poll(() => download.getAttribute('href')).toContain('data:image/png');
 });

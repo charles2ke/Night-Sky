@@ -60,15 +60,32 @@ export function estimateLightPollution(population, year) {
 
 const DIRECTIONS = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
 
+/** True when the string is a real calendar date, so 2024-02-31 is rejected. */
+function isValidDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const [y, m, d] = value.split('-').map(Number);
+  const parsed = new Date(Date.UTC(y, m - 1, d));
+  return parsed.getUTCFullYear() === y
+    && parsed.getUTCMonth() === m - 1
+    && parsed.getUTCDate() === d;
+}
+
+/** True when the string is a clock time within 00:00–23:59. */
+function isValidTime(value) {
+  if (!/^\d{2}:\d{2}$/.test(value)) return false;
+  const [h, min] = value.split(':').map(Number);
+  return h >= 0 && h <= 23 && min >= 0 && min <= 59;
+}
+
 /** Copy the query string into the form, ignoring anything malformed. */
 function applyQueryParams() {
   const params = new URLSearchParams(window.location.search);
   const place = params.get('place');
   if (place && place.trim() && place.length <= 120) els.place.value = place.trim();
   const date = params.get('date');
-  if (date && /^\d{4}-\d{2}-\d{2}$/.test(date)) els.date.value = date;
+  if (date && isValidDate(date)) els.date.value = date;
   const time = params.get('time');
-  if (time && /^\d{2}:\d{2}$/.test(time)) els.time.value = time;
+  if (time && isValidTime(time)) els.time.value = time;
   const facing = params.get('facing');
   if (facing && DIRECTIONS.includes(facing.toUpperCase())) els.direction.value = facing.toUpperCase();
 }
