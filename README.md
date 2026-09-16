@@ -18,6 +18,10 @@ panorama in the style described by the
 You can toggle constellation lines and object names, adjust the light-pollution level, and
 download the rendered panorama as a PNG.
 
+The address bar keeps the current view, so a sky can be bookmarked or shared — for example
+`index.html?place=Gurugram%2C+India&date=2024-01-25&time=23%3A00&facing=N`. Unrecognised values
+in the query string are ignored and the defaults are used instead.
+
 ## Galaxies page
 
 `galaxies.html` is an illustrated guide to the galaxies we know. It leads with our own **Milky

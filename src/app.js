@@ -26,6 +26,7 @@ const els = {
 
 let catalog = null;
 let lastRender = null;
+let downloadTimer = null;
 
 async function loadCatalog() {
   if (catalog) return catalog;
@@ -57,6 +58,32 @@ export function estimateLightPollution(population, year) {
   return Math.min(0.9, 0.05 + urban * era * 0.95);
 }
 
+const DIRECTIONS = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+
+/** Copy the query string into the form, ignoring anything malformed. */
+function applyQueryParams() {
+  const params = new URLSearchParams(window.location.search);
+  const place = params.get('place');
+  if (place && place.trim() && place.length <= 120) els.place.value = place.trim();
+  const date = params.get('date');
+  if (date && /^\d{4}-\d{2}-\d{2}$/.test(date)) els.date.value = date;
+  const time = params.get('time');
+  if (time && /^\d{2}:\d{2}$/.test(time)) els.time.value = time;
+  const facing = params.get('facing');
+  if (facing && DIRECTIONS.includes(facing.toUpperCase())) els.direction.value = facing.toUpperCase();
+}
+
+/** Keep the address bar in step with the view, so it can be shared or bookmarked. */
+function updateQueryParams() {
+  const params = new URLSearchParams({
+    place: els.place.value.trim(),
+    date: els.date.value,
+    time: els.time.value || '00:00',
+    facing: els.direction.value,
+  });
+  window.history.replaceState(null, '', `${window.location.pathname}?${params}`);
+}
+
 function seedFrom(text) {
   let h = 2166136261;
   for (let i = 0; i < text.length; i++) {
@@ -75,8 +102,18 @@ function draw() {
     showLabels: els.labels.checked,
     lightPollution: Number(els.lightPollution.value) / 100,
   });
-  els.download.href = els.canvas.toDataURL('image/png');
-  els.download.hidden = false;
+  refreshDownload();
+}
+
+// Encoding the full-size canvas as a PNG is slow, so it is done once the
+// controls settle rather than on every slider step.
+function refreshDownload() {
+  if (downloadTimer) clearTimeout(downloadTimer);
+  downloadTimer = setTimeout(() => {
+    downloadTimer = null;
+    els.download.href = els.canvas.toDataURL('image/png');
+    els.download.hidden = false;
+  }, 150);
 }
 
 function showDetails(rows) {
@@ -128,6 +165,7 @@ async function generate(event) {
         terrainSeed: seedFrom(`${place.label || place.name}`),
       },
     };
+    updateQueryParams();
     draw();
 
     const visible = sky.stars.filter((s) => s.alt > 0).length;
@@ -164,9 +202,11 @@ for (const el of [els.constellations, els.labels, els.lightPollution]) {
 els.direction.addEventListener('change', () => {
   if (lastRender) {
     lastRender.options.viewDirection = els.direction.value;
+    updateQueryParams();
     draw();
   }
 });
 
 // Render an initial sky so the page is never empty.
+applyQueryParams();
 generate();

@@ -133,3 +133,31 @@ test('constellation lines can be toggled off', async ({ page }) => {
   await page.uncheck('#toggle-constellations');
   await expect.poll(() => litPixelFraction(page)).toBeLessThan(withLines);
 });
+
+test('shares the view through the URL and restores it on load', async ({ page }) => {
+  await generate(page, { place: 'Gurugram, India', date: '2024-01-25', time: '23:00', direction: 'N' });
+  await expect.poll(() => page.evaluate(() => window.location.search)).toContain('date=2024-01-25');
+
+  await page.goto('/index.html?place=Gurugram%2C+India&date=2024-01-25&time=23%3A00&facing=N');
+  await expect(page.locator('#status')).toContainText('Night sky over', { timeout: 20000 });
+  await expect(page.locator('#date')).toHaveValue('2024-01-25');
+  await expect(page.locator('#time')).toHaveValue('23:00');
+  await expect(page.locator('#direction')).toHaveValue('N');
+  await expect(page.locator('#details-list')).toContainText('Full Moon');
+});
+
+test('ignores malformed URL parameters', async ({ page }) => {
+  await page.goto('/index.html?date=not-a-date&facing=UP&time=99');
+  await expect(page.locator('#status')).toContainText('Night sky over', { timeout: 20000 });
+  await expect(page.locator('#date')).toHaveValue('1995-02-01');
+  await expect(page.locator('#time')).toHaveValue('00:00');
+  await expect(page.locator('#direction')).toHaveValue('S');
+});
+
+test('the download link stays available after adjusting the controls', async ({ page }) => {
+  await generate(page, { place: 'Gurugram, India', date: '1995-02-01', time: '00:00', direction: 'S' });
+  await page.fill('#light-pollution', '80');
+  const download = page.locator('#download');
+  await expect(download).toBeVisible();
+  await expect.poll(() => download.getAttribute('href')).toContain('data:image/png');
+});
