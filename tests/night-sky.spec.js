@@ -156,7 +156,10 @@ test('ignores malformed URL parameters', async ({ page }) => {
 
 test('the download link stays available after adjusting the controls', async ({ page }) => {
   await generate(page, { place: 'Gurugram, India', date: '1995-02-01', time: '00:00', direction: 'S' });
-  await page.fill('#light-pollution', '80');
+  await page.locator('#light-pollution').evaluate((el) => {
+    el.value = '80';
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+  });
   const download = page.locator('#download');
   await expect(download).toBeVisible();
   await expect.poll(() => download.getAttribute('href')).toContain('data:image/png');
